@@ -16,6 +16,7 @@
     overflow-x: hidden;
     position: relative;
     animation: bgFade 30s ease-in-out infinite alternate;
+    scroll-behavior: smooth;
   }
 
   @keyframes bgFade {
@@ -31,6 +32,7 @@
     font-size: 40px;
     animation: floatDog linear infinite;
     z-index: 5;
+    opacity: 0.9;
   }
   @keyframes floatDog {
     0% { transform: translate(0,0) rotate(0deg); }
@@ -47,15 +49,15 @@
   }
   header h1 {
     margin: 0;
-    font-size: 40px;
-    text-shadow: 2px 2px 5px #FFFFFF33;
+    font-size: 48px;
+    text-shadow: 2px 2px 8px #FFFFFF55;
   }
   header p {
     margin: 5px 0 20px;
     font-size: 22px;
   }
 
-  .call-button, .social-button {
+  .btn {
     background: #FFFFFF;
     color: #A6E22E;
     padding: 14px 28px;
@@ -68,9 +70,9 @@
     margin: 10px 5px;
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
   }
-  .call-button:hover, .social-button:hover {
+  .btn:hover {
     background: #FFFF66;
-    transform: scale(1.05);
+    transform: scale(1.07);
     box-shadow: 0 8px 20px rgba(255,255,255,0.25);
   }
 
@@ -81,7 +83,7 @@
     width: 90%;
     max-width: 800px;
     border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(255,255,255,0.3);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     transition: transform 0.3s;
     color: #A6E22E;
     position: relative;
@@ -121,32 +123,34 @@
   #map { width:100%; height:400px; border-radius:12px; overflow:hidden; }
 
   @media (max-width:600px){
-    header h1 { font-size:32px; }
+    header h1 { font-size:34px; }
     header p { font-size:18px; }
-    .call-button, .social-button { font-size:18px; padding:10px 20px; }
-    .dog { font-size:30px; }
+    .btn { font-size:18px; padding:10px 20px; }
+    .dog { font-size:28px; }
   }
 </style>
 </head>
 <body>
 
 <!-- Floating Dogs -->
-<div class="dog" style="top:10%; left:5%; animation-duration:12s;">🐶</div>
-<div class="dog" style="top:25%; left:50%; animation-duration:18s;">🐕</div>
-<div class="dog" style="top:40%; left:30%; animation-duration:15s;">🐩</div>
-<div class="dog" style="top:60%; left:70%; animation-duration:20s;">🦮</div>
-<div class="dog" style="top:80%; left:80%; animation-duration:25s;">🐕‍🦺</div>
-<div class="dog" style="top:15%; left:80%; animation-duration:22s;">🐶</div>
-<div class="dog" style="top:50%; left:10%; animation-duration:19s;">🐕</div>
-<div class="dog" style="top:70%; left:40%; animation-duration:16s;">🐩</div>
+<div class="dog" style="top:5%; left:5%; animation-duration:12s;">🐶</div>
+<div class="dog" style="top:15%; left:25%; animation-duration:14s;">🐕</div>
+<div class="dog" style="top:25%; left:60%; animation-duration:18s;">🐩</div>
+<div class="dog" style="top:35%; left:75%; animation-duration:22s;">🦮</div>
+<div class="dog" style="top:45%; left:10%; animation-duration:19s;">🐕‍🦺</div>
+<div class="dog" style="top:55%; left:50%; animation-duration:16s;">🐶</div>
+<div class="dog" style="top:65%; left:80%; animation-duration:24s;">🐾</div>
+<div class="dog" style="top:75%; left:30%; animation-duration:21s;">🦴</div>
+<div class="dog" style="top:85%; left:70%; animation-duration:20s;">🐕</div>
 
 <header>
   <h1>PoopDood</h1>
   <p>Your Dog, Our Mess</p>
-  <a class="call-button" href="tel:8067815638">Call PoopDood</a>
+  <a class="btn" href="tel:8067815638">📞 Call PoopDood</a>
+  <a class="btn" href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a>
   <div>
-    <a class="social-button" href="https://www.facebook.com/poopdoodlubbock/" target="_blank">Facebook</a>
-    <a class="social-button" href="https://www.instagram.com/corbinrkey/" target="_blank">Instagram</a>
+    <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank">Facebook</a>
+    <a class="btn" href="https://www.instagram.com/corbinrkey/" target="_blank">Instagram</a>
   </div>
 </header>
 
@@ -176,6 +180,12 @@
   </div>
 </section>
 
+<section id="one-time">
+  <h2>Do I do one-time pickups?</h2>
+  <p style="font-size:18px;">Absolutely! If you just need a quick cleanup before a party, event, or special day — we’ve got you covered.</p>
+  <a class="btn" href="sms:8067815638?body=Hi!%20I%27m%20wondering%20if%20you%20do%20one-time%20pickups.">Ask About One-Time Pickups 💩</a>
+</section>
+
 <section id="appointment">
   <h2>Book an Appointment</h2>
   <form id="appointmentForm">
@@ -198,7 +208,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Appointment form
+  // Appointment form SMS
   const form = document.getElementById('appointmentForm');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -222,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new google.maps.Marker({ position: center, map: map, title: "PoopDood Service Area" });
   };
 
-  // Wait for Google Maps script to load, then call init
+  // Wait for Google Maps to load
   const checkMap = setInterval(() => {
     if (window.google && window.google.maps) {
       clearInterval(checkMap);
@@ -234,5 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
+
 
 
