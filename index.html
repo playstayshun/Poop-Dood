@@ -62,7 +62,6 @@
     margin: 10px 0 25px;
   }
 
-  /* Toggle button */
   #darkToggle {
     position: fixed;
     top: 20px;
@@ -267,7 +266,7 @@
   <h2>Book an Appointment</h2>
   <form id="appointmentForm">
     <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="phone" placeholder="Your Phone Number" required>
+    <input type="text" id="address" placeholder="Your Address" required>
     <input type="number" id="dogs" placeholder="Number of Dogs" min="1" required>
     <input type="date" id="date" required>
     <input type="time" id="time" required>
@@ -290,7 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('darkToggle');
   const body = document.body;
 
-  // Restore saved preference
   if (localStorage.getItem('theme') === 'dark') {
     body.classList.add('dark');
     toggle.textContent = '☀️';
@@ -303,20 +301,19 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
-  // Appointment form
   const form = document.getElementById('appointmentForm');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
     const dogs = document.getElementById('dogs').value;
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
-    const message = `Hi! I’d like to schedule a poop pickup appointment on ${date} at ${time} for ${dogs} dog(s). My name is ${name}, and my phone is ${phone}.`;
+
+    const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nTime: ${time}\n\nThanks!`;
     window.location.href = `sms:8067815638?&body=${encodeURIComponent(message)}`;
   });
 
-  // Google Map
   const initMap = () => {
     const center = { lat: 33.5779, lng: -101.8552 };
     const map = new google.maps.Map(document.getElementById('map'), {
