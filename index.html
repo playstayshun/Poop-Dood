@@ -16,6 +16,17 @@
     --bg-gradient: linear-gradient(180deg, #A6E22E 0%, #6EDC40 100%);
   }
 
+  body.dark {
+    --primary: #8FE86A;
+    --primary-dark: #6EDC40;
+    --accent: #A6E22E;
+    --text: #f1f1f1;
+    --bg-light: #1e1e1e;
+    --bg-gradient: linear-gradient(180deg, #3a6b24 0%, #274b18 100%);
+    background: #111 !important;
+    color: var(--text);
+  }
+
   html, body {
     margin: 0;
     padding: 0;
@@ -25,6 +36,7 @@
     text-align: center;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    transition: background 0.4s, color 0.4s;
   }
 
   header {
@@ -35,17 +47,40 @@
     border-bottom-right-radius: 40px;
     position: relative;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: background 0.4s;
   }
+
   header h1 {
     margin: 0;
     font-size: 3rem;
     font-family: 'Baloo 2', cursive;
     text-shadow: 2px 3px 10px rgba(0,0,0,0.2);
   }
+
   header p {
     font-size: 1.3rem;
     margin: 10px 0 25px;
   }
+
+  /* Toggle button */
+  #darkToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 999;
+    transition: all 0.3s ease;
+  }
+  #darkToggle:hover { transform: rotate(10deg) scale(1.05); }
+  body.dark #darkToggle { background: #333; color: #fff; }
 
   .btn {
     background: #fff;
@@ -67,6 +102,10 @@
     background: var(--accent);
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
   }
+  body.dark .btn {
+    background: #2b2b2b;
+    color: var(--accent);
+  }
 
   section {
     background: var(--bg-light);
@@ -77,7 +116,9 @@
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
+    transition: background 0.4s, color 0.4s;
   }
+
   section h2 {
     color: var(--primary-dark);
     font-size: 1.8rem;
@@ -92,6 +133,7 @@
 
   .pricing-list p { margin: 5px 0; font-size: 1rem; color: #444; }
   .pricing-list b { color: var(--primary-dark); }
+  body.dark .pricing-list p { color: #ccc; }
 
   form {
     display: flex;
@@ -109,11 +151,8 @@
     max-width: 400px;
     transition: border 0.2s, background 0.2s;
   }
-  input:focus {
-    outline: none;
-    border-color: var(--primary);
-    background: #fff;
-  }
+  input:focus { outline: none; border-color: var(--primary); background: #fff; }
+  body.dark input { background: #333; border-color: #444; color: #f1f1f1; }
 
   button.submit-btn {
     background: var(--primary);
@@ -126,10 +165,7 @@
     transition: all 0.2s;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
-  button.submit-btn:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-  }
+  button.submit-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
   #map {
     width: 100%;
@@ -145,7 +181,9 @@
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     font-size: 0.95rem;
+    transition: background 0.4s;
   }
+  body.dark footer { background: #222; }
 
   .dog {
     position: absolute;
@@ -165,10 +203,13 @@
     header p { font-size: 1rem; }
     .btn { font-size: 1rem; padding: 10px 20px; }
     .dog { font-size: 30px; }
+    #darkToggle { width: 40px; height: 40px; font-size: 1.1rem; }
   }
 </style>
 </head>
 <body>
+
+<button id="darkToggle" title="Toggle dark mode">🌙</button>
 
 <!-- Floating Dogs -->
 <div class="dog" style="top:5%; left:10%; animation-duration:16s;">🐶</div>
@@ -246,6 +287,22 @@
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPD5z7M0VvST2vVVqfEy9piPlwDdAic64"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('darkToggle');
+  const body = document.body;
+
+  // Restore saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark');
+    toggle.textContent = '☀️';
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    const isDark = body.classList.contains('dark');
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
   // Appointment form
   const form = document.getElementById('appointmentForm');
   form.addEventListener('submit', (e) => {
@@ -287,4 +344,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
