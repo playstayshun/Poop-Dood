@@ -11,17 +11,16 @@
 <!-- Multiple title tag variations aren't allowed, but you can use concise title and use h1/h2 for variations -->
 <title>PoopDood — Dog Poop Removal in Lubbock, TX</title>
 
-<!-- ---------- LOCAL SEO & META: paste after <title> ---------- -->
+<!-- ---------- LOCAL SEO & META: after <title> ---------- -->
 
 <!-- Primary meta & canonical -->
 <link rel="canonical" href="https://poopdood.site/">
 <meta name="description" content="PoopDood — Lubbock's reliable dog poop removal & pet waste cleanup. Affordable weekly and one-time yard cleanups. Call 806-781-5638.">
 <meta name="keywords" content="dog poop removal Lubbock, pooper scooper near me, pet waste cleanup Lubbock TX, yard cleaning dog poop, poop pickup Lubbock">
 
-<!-- Open Graph (you already have, fine to keep/update) -->
+<!-- Open Graph -->
 <meta property="og:site_name" content="PoopDood">
 <meta property="og:locale" content="en_US">
-
 
 <!-- Structured data (LocalBusiness) JSON-LD -->
 <script type="application/ld+json">
@@ -34,18 +33,19 @@
   "url": "https://poopdood.site/",
   "telephone": "+1-806-781-5638",
   "priceRange": "$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lubbock",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
   "areaServed": {
     "@type": "Place",
+    "name": "Lubbock, TX",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 33.5779,
       "longitude": -101.8552
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Lubbock",
-      "addressRegion": "TX",
-      "addressCountry": "US"
     }
   },
   "openingHoursSpecification": [{
@@ -62,12 +62,7 @@
 }
 </script>
 
-
-<!-- Optional: explicit OG image dimensions -->
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Schema: service offered (helps Google understand keywords) -->
+<!-- Schema: service offered (references LocalBusiness by ID, no duplicate) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,13 +70,11 @@
   "name": "Dog poop removal",
   "description": "Residential dog poop removal and yard cleaning in Lubbock, Texas.",
   "provider": {
-    "@type": "LocalBusiness",
-    "name": "PoopDood"
+    "@id": "https://poopdood.site/#business"
   }
 }
 </script>
-
-<!-- ---------- end head SEO snippet ---------- -->
+<!--end of seo and meta
 
 <!-- Favicon for browser tab -->
 <link rel="icon" href="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078" type="image/jpeg">
@@ -588,6 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
