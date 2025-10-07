@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -271,6 +272,55 @@ body.dark section h2 {
     .dog { font-size: 30px; }
     #darkToggle { width: 40px; height: 40px; font-size: 1.1rem; }
   }
+ /* Centered header logo */
+.logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 120px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: logoPulse 3s ease-in-out infinite alternate;
+}
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+body.dark .logo {
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Gentle glow animation for logo */
+@keyframes logoPulse {
+  0% { filter: drop-shadow(0 0 6px rgba(110,220,64,0.4)); }
+  100% { filter: drop-shadow(0 0 12px rgba(110,220,64,0.8)); }
+}
+
+/* Footer logo — centered */
+.footer-logo {
+  display: block;
+  margin: 0 auto 12px auto;
+  width: 90px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: footerLogoPulse 3s ease-in-out infinite alternate;
+}
+.footer-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Gentle glow animation for footer logo */
+@keyframes footerLogoPulse {
+  0% { filter: drop-shadow(0 0 6px rgba(110,220,64,0.3)); }
+  100% { filter: drop-shadow(0 0 12px rgba(110,220,64,0.7)); }
+}
+
+
+
 </style>
 </head>
 <body>
@@ -286,6 +336,12 @@ body.dark section h2 {
 <div class="dog" style="top:85%; left:80%; animation-duration:26s;">🐾</div>
 
 <header>
+    <img 
+  src="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078"
+  alt="PoopDood Logo"
+  class="logo"
+/>
+
   <h1>POOP DOOD©</h1>
   <p>Your Dog, Our Mess. — Lubbock’s Trusted Pooper Scooper</p>
   <a class="btn" href="tel:8067815638">📞 Call Us</a>
@@ -347,6 +403,12 @@ body.dark section h2 {
 </section>
 
 <footer>
+    <img 
+  src="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078"
+  alt="PoopDood Logo"
+  class="footer-logo"
+/>
+
   © 2025 POOPDOOD. Built with 💚 by Jojo & Corbin in Lubbock, TX.
 </footer>
 
@@ -408,9 +470,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
-
-
-
-
-
