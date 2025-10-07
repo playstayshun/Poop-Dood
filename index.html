@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,42 +28,40 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "http://poopdood.site/",
-  "name": "Poop Dood",
+  "@id": "https://poopdood.site/#business",
+  "name": "PoopDood",
   "image": "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078",
-  "url": "https://www.facebook.com/photo.php?fbid=1250881367055363&set=pb.100064005339486.-2207520000&type=3",
+  "url": "https://poopdood.site/",
   "telephone": "+1-806-781-5638",
   "priceRange": "$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2006 la salle ave",
-    "addressLocality": "Lubbock",
-    "addressRegion": "TX",
-    "postalCode": "79407",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": LAT,
-    "longitude": LNG
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
-      ],
-      "opens": "10:00",
-      "closes": "20:00"
+  "areaServed": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.5779,
+      "longitude": -101.8552
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lubbock",
+      "addressRegion": "TX",
+      "addressCountry": "US"
     }
-  ],
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "10:00",
+    "closes": "20:00"
+  }],
   "sameAs": [
     "https://www.facebook.com/poopdoodlubbock/",
     "https://www.instagram.com/corbinrkey/"
   ],
-  "description": "PoopDood provides reliable dog poop removal and pet waste cleanup in Lubbock, TX. Weekly, twice-monthly, and one-time cleanups available."
+  "description": "PoopDood provides reliable dog poop removal and pet waste cleanup in Lubbock, TX and surrounding areas. Weekly, biweekly, and one-time services available."
 }
 </script>
+
 
 <!-- Optional: explicit OG image dimensions -->
 <meta property="og:image:width" content="1200">
@@ -589,6 +588,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
