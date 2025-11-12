@@ -525,7 +525,8 @@ body.dark .logo {
     <input type="text" id="name" placeholder="First and Last Name" required>
     <input type="text" id="address" placeholder="Your Address" required>
     <input type="number" id="dogs" placeholder="Number of Dogs" min="1" required>
-    <input type="date" id="date" required>
+    <input type="text" id="date" placeholder="Select a date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
+
 
 
 
@@ -650,6 +651,7 @@ const mapCheck = setInterval(() => {
 
 </body>
 </html>
+
 
 
 
