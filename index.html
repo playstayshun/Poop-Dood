@@ -583,39 +583,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.getElementById('appointmentForm');
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const address = document.getElementById('address').value;
-    const dogs = document.getElementById('dogs').value;
-    const date = document.getElementById('date').value;
-    const frequency = document.getElementById('frequency').value;
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const address = document.getElementById('address').value;
+  const dogs = document.getElementById('dogs').value;
+  const date = document.getElementById('date').value;
+  const frequency = document.getElementById('frequency').value;
 
-    const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nFrequency: ${frequency}\n\nThanks!`;
-window.location.href = `sms:8067815638?body=${encodeURIComponent(message)}`;
+  const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nFrequency: ${frequency}\n\nThanks!`;
 
+  // ✅ open the SMS app
+  window.location.href = `sms:+18067815638?body=${encodeURIComponent(message)}`;
+});
 
-  const initMap = () => {
-    const center = { lat: 33.5779, lng: -101.8552 };
-    const map = new google.maps.Map(document.getElementById('map'), {
-      center: center,
-      zoom: 12,
-      disableDefaultUI: true,
-      styles: [
-        { featureType: 'all', elementType: 'labels.text.fill', stylers: [{ color: '#4B6043' }] },
-        { featureType: 'poi', stylers: [{ visibility: 'off' }] },
-        { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#CDE4B1' }] },
-        { featureType: 'water', stylers: [{ color: '#A2E4C1' }] }
-      ]
-    });
-    new google.maps.Marker({ position: center, map: map, title: "PoopDood Service Area" });
-  };
+// ✅ move map setup OUTSIDE the form event listener
+const initMap = () => {
+  const center = { lat: 33.5779, lng: -101.8552 };
+  const map = new google.maps.Map(document.getElementById('map'), {
+    center: center,
+    zoom: 12,
+    disableDefaultUI: true,
+    styles: [
+      { featureType: 'all', elementType: 'labels.text.fill', stylers: [{ color: '#4B6043' }] },
+      { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+      { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#CDE4B1' }] },
+      { featureType: 'water', stylers: [{ color: '#A2E4C1' }] }
+    ]
+  });
+  new google.maps.Marker({ position: center, map: map, title: "PoopDood Service Area" });
+};
 
-  const mapCheck = setInterval(() => {
-    if (window.google && window.google.maps) {
-      clearInterval(mapCheck);
-      initMap();
-    }
-  }, 500);
+// wait for Google Maps to be ready
+const mapCheck = setInterval(() => {
+  if (window.google && window.google.maps) {
+    clearInterval(mapCheck);
+    initMap();
+  }
+}, 500);
+
 });
 </script>
 <script type="application/ld+json">
@@ -645,5 +650,6 @@ window.location.href = `sms:8067815638?body=${encodeURIComponent(message)}`;
 
 </body>
 </html>
+
 
 
