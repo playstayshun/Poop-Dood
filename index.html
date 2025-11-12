@@ -317,6 +317,44 @@ body.dark section h2 {
   input:focus { outline: none; border-color: var(--primary); background: #fff; }
   body.dark input { background: #333; border-color: #444; color: #f1f1f1; }
 
+select {
+  display: inline-block;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  width: 80%;
+  max-width: 400px;
+  color: var(--text);
+  transition: border 0.2s, background 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%236EDC40' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: #fff;
+}
+
+body.dark select {
+  background-color: #333 !important;
+  border-color: #555;
+  color: #f1f1f1;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23A6E22E' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  width: 80%;
+  max-width: 400px;
+}
+
+
+
+
   button.submit-btn {
     background: var(--primary);
     color: #fff;
@@ -488,9 +526,20 @@ body.dark .logo {
     <input type="text" id="address" placeholder="Your Address" required>
     <input type="number" id="dogs" placeholder="Number of Dogs" min="1" required>
     <input type="date" id="date" required>
-    <input type="time" id="time" required>
+
+
+
+    <!-- Replaced time input with a select dropdown -->
+    <select id="frequency" required>
+      <option value="" disabled selected>Select Frequency</option>
+      <option value="one-time">One Time Pickup</option>
+      <option value="weekly">Weekly</option>
+      <option value="bi-weekly">Bi-Weekly</option>
+    </select>
+
     <button type="submit" class="submit-btn">Submit Appointment</button>
   </form>
+
 </section>
 
 <section id="location">
@@ -539,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const address = document.getElementById('address').value;
     const dogs = document.getElementById('dogs').value;
     const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
+    const frequency = document.getElementById('frequency').value;
 
     const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nTime: ${time}\n\nThanks!`;
     window.location.href = `sms:8067815638?&body=${encodeURIComponent(message)}`;
