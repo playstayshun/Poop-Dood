@@ -590,9 +590,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const date = document.getElementById('date').value;
     const frequency = document.getElementById('frequency').value;
 
-    const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nTime: ${time}\n\nThanks!`;
-    window.location.href = `sms:8067815638?&body=${encodeURIComponent(message)}`;
-  });
+    const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nFrequency: ${frequency}\n\nThanks!`;
+window.location.href = `sms:8067815638?body=${encodeURIComponent(message)}`;
+
 
   const initMap = () => {
     const center = { lat: 33.5779, lng: -101.8552 };
