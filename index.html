@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +103,8 @@
 <meta name="twitter:image" content="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078">
 
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <style>
   :root {
     --primary: #6EDC40;
@@ -454,6 +456,13 @@ body.dark .logo {
 }
 
 
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 
 </style>
 </head>
@@ -564,7 +573,12 @@ body.dark .logo {
 </footer>
 
 
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPD5z7M0VvST2vVVqfEy9piPlwDdAic64"></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('darkToggle');
@@ -597,30 +611,45 @@ document.addEventListener('DOMContentLoaded', () => {
   window.location.href = `sms:+18067815638?body=${encodeURIComponent(message)}`;
 });
 
-// ✅ move map setup OUTSIDE the form event listener
-const initMap = () => {
-  const center = { lat: 33.5779, lng: -101.8552 };
-  const map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
-    zoom: 12,
-    disableDefaultUI: true,
-    styles: [
-      { featureType: 'all', elementType: 'labels.text.fill', stylers: [{ color: '#4B6043' }] },
-      { featureType: 'poi', stylers: [{ visibility: 'off' }] },
-      { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#CDE4B1' }] },
-      { featureType: 'water', stylers: [{ color: '#A2E4C1' }] }
-    ]
-  });
-  new google.maps.Marker({ position: center, map: map, title: "PoopDood Service Area" });
-};
+// Leaflet Map (Google Maps replacement)
+const lightTiles =
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-// wait for Google Maps to be ready
-const mapCheck = setInterval(() => {
-  if (window.google && window.google.maps) {
-    clearInterval(mapCheck);
-    initMap();
+const darkTiles =
+  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+
+const map = L.map('map', {
+  zoomControl: false
+}).setView([33.5779, -101.8552], 12);
+
+const tileLayer = L.tileLayer(
+  body.classList.contains('dark') ? darkTiles : lightTiles,
+  {
+    attribution: '&copy; OpenStreetMap contributors'
   }
-}, 500);
+).addTo(map);
+
+L.marker([33.5779, -101.8552])
+  .addTo(map)
+  .bindPopup('PoopDood Service Area');
+
+// Update map theme when dark mode toggles
+toggle.addEventListener('click', () => {
+  map.eachLayer((layer) => {
+    map.removeLayer(layer);
+  });
+
+  L.tileLayer(
+    body.classList.contains('dark') ? darkTiles : lightTiles,
+    {
+      attribution: '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(map);
+
+  L.marker([33.5779, -101.8552])
+    .addTo(map)
+    .bindPopup('PoopDood Service Area');
+});
 
 });
 </script>
