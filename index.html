@@ -264,7 +264,8 @@
     gap: 10px;
     justify-content: center;
     position: relative; z-index: 1;
-    padding: 0;
+    /* symmetric padding — right side gets extra to clear the fixed dark toggle */
+    padding: 0 60px;
   }
 
   /* ── BUTTONS ── */
@@ -557,7 +558,8 @@
   @media (max-width: 520px) {
     header { padding: 52px 16px 44px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
     .logo { width: 88px; height: 88px; border-radius: 18px; }
-    .header-btns { padding: 0; gap: 8px; }
+    /* symmetric padding on mobile — equal sides so flex centering is true center */
+    .header-btns { padding: 0 60px; gap: 8px; }
     .btn { padding: 10px 14px; font-size: 0.85rem; border-radius: 10px; }
     section { width: 95%; padding: 28px 16px; margin: 20px auto; border-radius: 16px; }
     section h2 { font-size: 1.4rem; }
