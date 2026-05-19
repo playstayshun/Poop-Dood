@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +7,13 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-LW50NWL9GM');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="pooper scooper Lubbock, dog waste removal Lubbock TX, yard poop cleanup, pet waste removal near me, poop pickup service">
 <meta name="google-site-verification" content="_4gXi8Ggt_Im71DH4EwMVU_u0z6FnaY5TvmfYopS4SI" />
-<!-- Multiple title tag variations aren't allowed, but you can use concise title and use h1/h2 for variations -->
 <title>PoopDood — Dog Poop Removal in Lubbock, TX</title>
-
-<!-- ---------- LOCAL SEO & META: after <title> ---------- -->
 
 <!-- Primary meta & canonical -->
 <link rel="canonical" href="https://poopdood.site/">
@@ -72,7 +64,6 @@
 }
 </script>
 
-<!-- Schema: service offered (references LocalBusiness by ID, no duplicate) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,14 +75,13 @@
   }
 }
 </script>
-<!--end of seo and meta
 
-<!-- Favicon for browser tab -->
+<!-- Favicon -->
 <link rel="icon" href="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078" type="image/jpeg">
 
-<!-- Open Graph (Facebook, iMessage, Discord) -->
+<!-- Open Graph -->
 <meta property="og:title" content="PoopDood — Your Dog, Our Mess">
-<meta property="og:description" content="Lubbock’s trusted pooper scooper! Easy, reliable, and 💩-free yards.">
+<meta property="og:description" content="Lubbock's trusted pooper scooper! Easy, reliable, and 💩-free yards.">
 <meta property="og:image" content="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078">
 <meta property="og:url" content="https://www.facebook.com/photo.php?fbid=1250881367055363&set=pb.100064005339486.-2207520000&type=3">
 <meta property="og:type" content="website">
@@ -99,371 +89,483 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PoopDood — Your Dog, Our Mess">
-<meta name="twitter:description" content="Lubbock’s trusted pooper scooper! Easy, reliable, and 💩-free yards.">
+<meta name="twitter:description" content="Lubbock's trusted pooper scooper! Easy, reliable, and 💩-free yards.">
 <meta name="twitter:image" content="https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/558151618_1250881373722029_7185767476516381859_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FJKAC20gYcAQ7kNvwGGhi1v&_nc_oc=AdkDgPe2w3iNvRmQchEZqIi9W_KTBg7ZIQzvGgAnbT9EShfTx37wfDYdKyxhnP4siyo&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=4W2Nu9oYhEcimNen6FGKhQ&oh=00_AfcFXKmWqKLQPe3U_ifdRgKZgIqdnENgLhDuO7qQM19fYA&oe=68EA7078">
 
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <style>
+  /* ── TOKENS ── */
   :root {
-    --primary: #6EDC40;
-    --primary-dark: #4EBB2E;
-    --accent: #ffff66;
-    --text: #333;
-    --bg-light: #ffffff;
-    --bg-gradient: linear-gradient(180deg, #A6E22E 0%, #6EDC40 100%);
+    --primary:      #5CC82A;
+    --primary-dark: #3fa31b;
+    --accent:       #FFE55C;
+    --text:         #1a1a1a;
+    --text-2:       #666;
+    --bg:           #f4f8f0;
+    --surface:      #ffffff;
+    --surface-2:    #eef4e8;
+    --border:       rgba(0,0,0,0.09);
+    --shadow:       0 2px 14px rgba(0,0,0,0.07);
+    --shadow-lg:    0 8px 32px rgba(0,0,0,0.11);
+    --radius:       20px;
+    --radius-sm:    12px;
+    --font-display: 'Fredoka One', cursive;
+    --font-body:    'Plus Jakarta Sans', sans-serif;
   }
 
   body.dark {
-    --primary: #8FE86A;
-    --primary-dark: #6EDC40;
-    --accent: #A6E22E;
-    --text: #f1f1f1;
-    --bg-light: #1e1e1e;
-    --bg-gradient: linear-gradient(180deg, #3a6b24 0%, #274b18 100%);
-    background: #111 !important;
-    color: var(--text);
+    --text:      #f0f0f0;
+    --text-2:    #999;
+    --bg:        #0e1a08;
+    --surface:   #172410;
+    --surface-2: #1e3016;
+    --border:    rgba(255,255,255,0.08);
+    --shadow:    0 2px 14px rgba(0,0,0,0.35);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.45);
+  }
+
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     color: var(--text);
-    background: #f6f8f5;
-    text-align: center;
+    background: var(--bg);
     overflow-x: hidden;
-    scroll-behavior: smooth;
     transition: background 0.4s, color 0.4s;
+    text-align: center;
   }
 
-  header {
-    padding: 60px 20px 40px;
-    background: var(--bg-gradient);
-    color: #fff;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: background 0.4s;
-  }
-
-  header h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-family: 'Baloo 2', cursive;
-  color: #fff;
-  text-shadow:
-    0 0 10px rgba(255, 255, 255, 0.6),
-    0 0 20px var(--accent),
-    0 0 40px var(--primary-dark),
-    0 0 80px var(--primary-dark);
-  animation: logoGlow 3s ease-in-out infinite alternate;
-}
-
-/* Glow animation */
-@keyframes logoGlow {
-  0% {
-    text-shadow:
-      0 0 8px rgba(255, 255, 255, 0.5),
-      0 0 16px var(--accent),
-      0 0 30px var(--primary-dark);
-    transform: scale(1);
-  }
-  100% {
-    text-shadow:
-      0 0 16px rgba(255, 255, 255, 0.9),
-      0 0 32px var(--accent),
-      0 0 60px var(--primary-dark);
-    transform: scale(1.02);
-  }
-}
-
-/* Dark mode version — more vibrant */
-body.dark header h1 {
-  color: var(--accent);
-  text-shadow:
-    0 0 15px var(--accent),
-    0 0 30px var(--primary),
-    0 0 60px var(--primary-dark),
-    0 0 90px var(--primary-dark);
-}
-
-
-  header p {
-    font-size: 1.3rem;
-    margin: 10px 0 25px;
-  }
-
+  /* ── DARK TOGGLE — always top-right, never overlaps anything ── */
   #darkToggle {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #fff;
-    color: #333;
-    border: none;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.2rem;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    z-index: 999;
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.4s, color 0.4s, border-color 0.4s;
   }
-  #darkToggle:hover { transform: rotate(10deg) scale(1.05); }
-  body.dark #darkToggle { background: #333; color: #fff; }
+  #darkToggle:hover { transform: rotate(15deg) scale(1.08); }
 
+  /* ── FLOATING DOGS — behind everything ── */
+  .dog {
+    position: fixed;
+    font-size: 36px;
+    opacity: 0.055;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDog linear infinite;
+    user-select: none;
+  }
+  body.dark .dog { opacity: 0.035; }
+  @keyframes floatDog {
+    0%   { transform: translate(0,0) rotate(0deg); }
+    50%  { transform: translate(15px,-15px) rotate(10deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    padding: 64px 24px 52px;
+    background: linear-gradient(160deg, #7de84a 0%, #3fa31b 100%);
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+    box-shadow: 0 8px 32px rgba(63,163,27,0.25);
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+  body.dark header {
+    background: linear-gradient(160deg, #2d6118 0%, #1a3d0d 100%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  /* subtle radial glow behind logo area */
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── LOGO ── */
+  .logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+    transition: transform 0.3s ease;
+    position: relative; z-index: 1;
+    animation: logoPulse 3s ease-in-out infinite alternate;
+  }
+  .logo:hover { transform: scale(1.05); }
+  @keyframes logoPulse {
+    0%   { filter: drop-shadow(0 0 6px rgba(255,255,255,0.4)); }
+    100% { filter: drop-shadow(0 0 16px rgba(255,255,255,0.75)); }
+  }
+
+  /* ── HEADER H1 ── */
+  header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1;
+    position: relative; z-index: 1;
+    animation: logoGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes logoGlow {
+    0%   { text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 24px rgba(255,229,92,0.4); }
+    100% { text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 48px rgba(255,229,92,0.7); }
+  }
+  body.dark header h1 { color: var(--accent); }
+
+  /* ── HEADER TAGLINE ── */
+  header p {
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
+    color: rgba(255,255,255,0.9);
+    margin: 0 0 28px;
+    position: relative; z-index: 1;
+  }
+  body.dark header p { color: rgba(255,255,255,0.7); }
+
+  /* ── HEADER BUTTON GROUP ── */
+  .header-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    position: relative; z-index: 1;
+    /* keep clear of the fixed dark toggle (44px wide + 16px right + gap) */
+    padding: 0 70px 0 16px;
+  }
+
+  /* ── BUTTONS ── */
   .btn {
-    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 20px;
+    background: rgba(255,255,255,0.95);
     color: var(--primary-dark);
-    padding: 14px 28px;
     border: none;
-    border-radius: 14px;
-    font-size: 1.1rem;
-    cursor: pointer;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
     text-decoration: none;
-    display: inline-block;
-    margin: 8px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.25s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
   }
   .btn:hover {
     transform: translateY(-3px);
     background: var(--accent);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.16);
   }
   body.dark .btn {
-    background: #2b2b2b;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  body.dark .btn:hover {
+    background: rgba(255,255,255,0.2);
     color: var(--accent);
   }
 
+  /* ── SECTIONS ── */
   section {
-    background: var(--bg-light);
-    margin: 40px auto;
-    padding: 40px 30px;
-    width: 90%;
-    max-width: 900px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    background: var(--surface);
+    margin: 32px auto;
+    padding: 40px 24px;
+    width: 92%;
+    max-width: 860px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
     text-align: center;
-    transition: background 0.4s, color 0.4s;
+    transition: background 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s;
+  }
+  section:hover {
+    box-shadow: var(--shadow-lg);
   }
 
-  /* Match glowing style for section headers */
-section h2 {
-  color: var(--primary-dark);
-  font-size: 1.9rem;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Baloo 2', cursive;
-  text-shadow:
-    0 0 6px rgba(255, 255, 255, 0.6),
-    0 0 12px var(--accent),
-    0 0 25px var(--primary-dark);
-  animation: sectionGlow 3s ease-in-out infinite alternate;
-}
-
-/* Section glow animation */
-@keyframes sectionGlow {
-  0% {
-    text-shadow:
-      0 0 4px rgba(255, 255, 255, 0.4),
-      0 0 10px var(--accent),
-      0 0 20px var(--primary-dark);
+  /* ── SECTION H2 ── */
+  section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: var(--primary-dark);
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    animation: sectionGlow 3s ease-in-out infinite alternate;
   }
-  100% {
-    text-shadow:
-      0 0 8px rgba(255, 255, 255, 0.8),
-      0 0 20px var(--accent),
-      0 0 35px var(--primary-dark);
+  @keyframes sectionGlow {
+    0%   { text-shadow: 0 0 6px rgba(255,229,92,0.3), 0 0 14px rgba(63,163,27,0.2); }
+    100% { text-shadow: 0 0 12px rgba(255,229,92,0.6), 0 0 28px rgba(63,163,27,0.4); }
   }
-}
+  body.dark section h2 {
+    color: #a0e860;
+    text-shadow: 0 0 12px rgba(160,232,96,0.5), 0 0 28px rgba(92,200,42,0.3);
+  }
+  section h2::before { content: "🐾"; font-size: 1.1em; }
 
-/* Dark mode version — brighter and more vibrant */
-body.dark section h2 {
-  color: var(--accent);
-  text-shadow:
-    0 0 10px var(--accent),
-    0 0 25px var(--primary),
-    0 0 45px var(--primary-dark);
-}
+  /* ── PRICING LIST ── */
+  .pricing-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    text-align: left;
+    margin-top: 8px;
+  }
 
-  section h2::before { content: "🐾"; }
+  .pricing-list > div {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    transition: background 0.4s, border-color 0.4s;
+  }
 
-  .pricing-list p { margin: 5px 0; font-size: 1rem; color: #444; }
-  .pricing-list b { color: var(--primary-dark); }
-  body.dark .pricing-list p { color: #ccc; }
+  .pricing-list > div:nth-child(2) {
+    border-color: var(--primary);
+    position: relative;
+  }
+  .pricing-list > div:nth-child(2)::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 99px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
 
+  .pricing-list b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+  }
+  body.dark .pricing-list b { color: #a0e860; }
+
+  .pricing-list p {
+    margin: 6px 0;
+    font-size: 0.92rem;
+    color: var(--text-2);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .pricing-list p:last-child { border-bottom: none; padding-bottom: 0; }
+  .pricing-list p::before { content: '🐾 '; }
+
+  /* ── ONE-TIME SECTION ── */
+  #one-time p {
+    max-width: 640px;
+    margin: 0 auto 24px;
+    font-size: 1rem;
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  /* ── FORM ── */
   form {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     align-items: center;
+    width: 100%;
   }
-  input {
-    padding: 12px 16px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    background: #f9f9f9;
-    width: 80%;
-    max-width: 400px;
-    transition: border 0.2s, background 0.2s;
+
+  input, select {
+    width: 100%;
+    max-width: 440px;
+    padding: 13px 16px;
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.4s, color 0.4s;
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
   }
-  input:focus { outline: none; border-color: var(--primary); background: #fff; }
-  body.dark input { background: #333; border-color: #444; color: #f1f1f1; }
+  input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(92,200,42,0.15);
+    background: var(--surface);
+  }
 
-select {
-  display: inline-block;
-  padding: 12px 16px;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  width: 80%;
-  max-width: 400px;
-  color: var(--text);
-  transition: border 0.2s, background 0.2s;
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%236EDC40' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 20px;
-  cursor: pointer;
-  box-sizing: border-box;
-}
+  select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%235CC82A' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    background-color: var(--surface-2);
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  select:focus { background-color: var(--surface); }
 
-select:focus {
-  outline: none;
-  border-color: var(--primary);
-  background-color: #fff;
-}
+  body.dark input, body.dark select {
+    background-color: var(--surface-2);
+    border-color: rgba(255,255,255,0.1);
+    color: var(--text);
+  }
+  body.dark select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23a0e860' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-color: var(--surface-2);
+  }
 
-body.dark select {
-  background-color: #333 !important;
-  border-color: #555;
-  color: #f1f1f1;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23A6E22E' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  width: 80%;
-  max-width: 400px;
-}
-
-
-
-
+  /* ── SUBMIT BUTTON ── */
   button.submit-btn {
+    width: 100%;
+    max-width: 440px;
+    padding: 14px 28px;
     background: var(--primary);
     color: #fff;
-    font-size: 1.1rem;
-    padding: 14px 28px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
     border: none;
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(92,200,42,0.35);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  button.submit-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  button.submit-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92,200,42,0.45);
+  }
+  button.submit-btn:active { transform: translateY(0); }
 
+  /* ── MAP ── */
   #map {
     width: 100%;
-    height: 400px;
-    border-radius: 16px;
-    margin-top: 10px;
+    height: 380px;
+    border-radius: var(--radius-sm);
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
   }
 
+  /* ── FOOTER ── */
   footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 40px 24px 32px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+    transition: background 0.4s, border-color 0.4s;
+  }
+  body.dark footer { background: var(--surface); }
+
+  .footer-logo {
+    display: block;
+    margin: 0 auto 14px;
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    animation: footerLogoPulse 3s ease-in-out infinite alternate;
+  }
+  @keyframes footerLogoPulse {
+    0%   { filter: drop-shadow(0 0 4px rgba(92,200,42,0.3)); }
+    100% { filter: drop-shadow(0 0 10px rgba(92,200,42,0.65)); }
+  }
+
+  footer p {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  /* footer btn variant — reuse .btn but darker bg */
+  .footer-links .btn {
+    background: var(--surface-2);
+    color: var(--primary-dark);
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    padding: 10px 18px;
+  }
+  .footer-links .btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  body.dark .footer-links .btn {
+    background: var(--surface-2);
+    color: #a0e860;
+    border-color: rgba(255,255,255,0.1);
+  }
+  body.dark .footer-links .btn:hover {
     background: var(--primary-dark);
     color: #fff;
-    padding: 25px 15px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    font-size: 0.95rem;
-    transition: background 0.4s;
-  }
-  body.dark footer { background: #222; }
-
-  .dog {
-    position: absolute;
-    font-size: 40px;
-    opacity: 0.85;
-    animation: floatDog linear infinite;
-    z-index: 3;
-  }
-  @keyframes floatDog {
-    0% { transform: translate(0,0) rotate(0deg); }
-    50% { transform: translate(15px,-15px) rotate(10deg); }
-    100% { transform: translate(0,0) rotate(0deg); }
   }
 
-  @media (max-width: 600px) {
-    header h1 { font-size: 2.3rem; }
-    header p { font-size: 1rem; }
-    .btn { font-size: 1rem; padding: 10px 20px; }
-    .dog { font-size: 30px; }
-    #darkToggle { width: 40px; height: 40px; font-size: 1.1rem; }
+  /* ── MOBILE ── */
+  @media (max-width: 520px) {
+    header { padding: 52px 16px 44px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
+    .logo { width: 88px; height: 88px; border-radius: 18px; }
+    /* On mobile the dark toggle is 44px+16px = 60px from right,
+       so we shrink the right padding of .header-btns to match */
+    .header-btns { padding: 0 60px 0 12px; gap: 8px; }
+    .btn { padding: 10px 14px; font-size: 0.85rem; border-radius: 10px; }
+    section { width: 95%; padding: 28px 16px; margin: 20px auto; border-radius: 16px; }
+    section h2 { font-size: 1.4rem; }
+    .pricing-list { grid-template-columns: 1fr; }
+    input, select, button.submit-btn { max-width: 100%; }
+    #map { height: 300px; }
+    footer { padding: 32px 16px 24px; }
   }
- /* Centered header logo */
-.logo {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 120px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: logoPulse 3s ease-in-out infinite alternate;
-}
-.logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-body.dark .logo {
-  filter: brightness(1.1) contrast(1.05);
-}
-
-/* Gentle glow animation for logo */
-@keyframes logoPulse {
-  0% { filter: drop-shadow(0 0 6px rgba(110,220,64,0.4)); }
-  100% { filter: drop-shadow(0 0 12px rgba(110,220,64,0.8)); }
-}
-
-/* Footer logo — centered */
-.footer-logo {
-  display: block;
-  margin: 0 auto 12px auto;
-  width: 90px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: footerLogoPulse 3s ease-in-out infinite alternate;
-}
-.footer-logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-/* Gentle glow animation for footer logo */
-@keyframes footerLogoPulse {
-  0% { filter: drop-shadow(0 0 6px rgba(110,220,64,0.3)); }
-  100% { filter: drop-shadow(0 0 12px rgba(110,220,64,0.7)); }
-}
-
-
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-
 </style>
 </head>
 <body>
@@ -479,52 +581,56 @@ body.dark .logo {
 <div class="dog" style="top:85%; left:80%; animation-duration:26s;">🐾</div>
 
 <header>
-    <img 
-  src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png"
-  alt="PoopDood Logo"
-  class="logo"
-/>
-
+  <img
+    src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png"
+    alt="PoopDood Logo"
+    class="logo"
+  />
   <h1>POOP DOOD©</h1>
-  <p>Your Dog, Our Mess. — Lubbock’s Trusted Pooper Scooper</p>
-  <a class="btn" href="tel:8067815638">📞 Call Us</a>
-  <a class="btn" href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a><br>
-  <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank">Facebook</a>
-  <a class="btn" href="https://www.instagram.com/corbinrkey/" target="_blank">Instagram</a>
+  <p>Your Dog, Our Mess. — Lubbock's Trusted Pooper Scooper</p>
+  <div class="header-btns">
+    <a class="btn" href="tel:8067815638">📞 Call Us</a>
+    <a class="btn" href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a>
+    <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank">Facebook</a>
+    <a class="btn" href="https://www.instagram.com/corbinrkey/" target="_blank">Instagram</a>
+  </div>
 </header>
 
 <section id="services">
-  <h2>Our Services & Pricing</h2>
+  <h2>Our Services &amp; Pricing</h2>
   <div class="pricing-list">
-    <p><b>1 time per week</b></p>
-    <p>1 dog: $50/month</p>
-    <p>2 dogs: $60/month</p>
-    <p>3 dogs: $65/month</p>
-    <p>4 dogs: $70/month</p>
-    <p>5+ dogs: $75/month</p>
-    <br>
-    <p><b>2 times per month</b></p>
-    <p>1 dog: $40/month</p>
-    <p>2 dogs: $50/month</p>
-    <p>3 dogs: $55/month</p>
-    <p>4 dogs: $60/month</p>
-    <p>5+ dogs: $65/month</p>
-    <br>
-    <p><b>Twice a week</b></p>
-    <p>1 dog: $90/month</p>
-    <p>2 dogs: $95/month</p>
-    <p>3 dogs: $100/month</p>
-    <p>4 dogs: $105/month</p>
-    <p>5+ dogs: $110/month</p>
+    <div>
+      <b>Every 2 Weeks</b>
+      <p><span>1 dog</span><span>$40/month</span></p>
+      <p><span>2 dogs</span><span>$50/month</span></p>
+      <p><span>3 dogs</span><span>$55/month</span></p>
+      <p><span>4 dogs</span><span>$60/month</span></p>
+      <p><span>5+ dogs</span><span>$65/month</span></p>
+    </div>
+    <div>
+      <b>Once a Week</b>
+      <p><span>1 dog</span><span>$50/month</span></p>
+      <p><span>2 dogs</span><span>$60/month</span></p>
+      <p><span>3 dogs</span><span>$65/month</span></p>
+      <p><span>4 dogs</span><span>$70/month</span></p>
+      <p><span>5+ dogs</span><span>$75/month</span></p>
+    </div>
+    <div>
+      <b>Twice a Week</b>
+      <p><span>1 dog</span><span>$90/month</span></p>
+      <p><span>2 dogs</span><span>$95/month</span></p>
+      <p><span>3 dogs</span><span>$100/month</span></p>
+      <p><span>4 dogs</span><span>$105/month</span></p>
+      <p><span>5+ dogs</span><span>$110/month</span></p>
+    </div>
   </div>
 </section>
 
 <section id="one-time">
   <h2>Do I do one-time pickups?</h2>
-  <p style="max-width:700px; margin:auto; font-size:1.05rem; color:#555;">
-    Absolutely! Whether it’s before a backyard party, an event, or just when life’s too busy — PoopDood offers quick, reliable one-time cleanups to make your yard fresh and ready to enjoy.
+  <p>
+    Absolutely! Whether it's before a backyard party, an event, or just when life's too busy — PoopDood offers quick, reliable one-time cleanups to make your yard fresh and ready to enjoy.
   </p>
-  <br>
   <a class="btn" href="sms:8067815638?body=Hi!%20I%27m%20wondering%20if%20you%20do%20one-time%20pickups.">💩 Ask About One-Time Pickups</a>
 </section>
 
@@ -535,21 +641,14 @@ body.dark .logo {
     <input type="text" id="address" placeholder="Your Address" required>
     <input type="number" id="dogs" placeholder="Number of Dogs" min="1" required>
     <input type="text" id="date" placeholder="Select a date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
-
-
-
-
-    <!-- Replaced time input with a select dropdown -->
     <select id="frequency" required>
       <option value="" disabled selected>Select Frequency</option>
       <option value="one-time">One Time Pickup</option>
       <option value="weekly">Weekly</option>
       <option value="bi-weekly">Bi-Weekly</option>
     </select>
-
     <button type="submit" class="submit-btn">Submit Appointment</button>
   </form>
-
 </section>
 
 <section id="location">
@@ -558,27 +657,18 @@ body.dark .logo {
 </section>
 
 <footer>
-  <img 
+  <img
     src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png"
     alt="PoopDood Logo"
     class="footer-logo"
   />
-
-  <p>© 2025 POOPDOOD. Built with 💚 by Jojo & Corbin in Lubbock, TX.</p>
-
+  <p>© 2025 POOPDOOD. Built with 💚 by Jojo &amp; Corbin in Lubbock, TX.</p>
   <div class="footer-links">
     <a class="btn" href="about.html">🐾 About Us</a>
     <a class="btn" href="faq.html">💩 FAQ</a>
   </div>
 </footer>
 
-
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('darkToggle');
@@ -598,68 +688,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.getElementById('appointmentForm');
   form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const address = document.getElementById('address').value;
-  const dogs = document.getElementById('dogs').value;
-  const date = document.getElementById('date').value;
-  const frequency = document.getElementById('frequency').value;
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const dogs = document.getElementById('dogs').value;
+    const date = document.getElementById('date').value;
+    const frequency = document.getElementById('frequency').value;
 
-  const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nFrequency: ${frequency}\n\nThanks!`;
+    const message = `Hi! I'd like to schedule a poop pickup appointment:\n\nName: ${name}\nAddress: ${address}\nDogs: ${dogs}\nDate: ${date}\nFrequency: ${frequency}\n\nThanks!`;
 
-  // ✅ open the SMS app
-  window.location.href = `sms:+18067815638?body=${encodeURIComponent(message)}`;
-});
-
-// Leaflet Map (Google Maps replacement)
-const lightTiles =
-  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-const darkTiles =
-  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-
-const map = L.map('map', {
-  zoomControl: false,
-  dragging: false,
-  touchZoom: false,
-  scrollWheelZoom: false,
-  doubleClickZoom: false,
-  boxZoom: false,
-  keyboard: false,
-  tap: false
-}).setView([33.5779, -101.8552], 12);
-
-const tileLayer = L.tileLayer(
-  body.classList.contains('dark') ? darkTiles : lightTiles,
-  {
-    attribution: '&copy; OpenStreetMap contributors'
-  }
-).addTo(map);
-
-L.marker([33.5779, -101.8552])
-  .addTo(map)
-  .bindPopup('PoopDood Service Area');
-
-// Update map theme when dark mode toggles
-toggle.addEventListener('click', () => {
-  map.eachLayer((layer) => {
-    map.removeLayer(layer);
+    window.location.href = `sms:+18067815638?body=${encodeURIComponent(message)}`;
   });
+
+  // Leaflet Map
+  const lightTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const darkTiles  = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+
+  const map = L.map('map', {
+    zoomControl: false,
+    dragging: false,
+    touchZoom: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false,
+    tap: false
+  }).setView([33.5779, -101.8552], 12);
 
   L.tileLayer(
     body.classList.contains('dark') ? darkTiles : lightTiles,
-    {
-      attribution: '&copy; OpenStreetMap contributors'
-    }
+    { attribution: '&copy; OpenStreetMap contributors' }
   ).addTo(map);
 
   L.marker([33.5779, -101.8552])
     .addTo(map)
     .bindPopup('PoopDood Service Area');
-});
 
+  toggle.addEventListener('click', () => {
+    map.eachLayer((layer) => { map.removeLayer(layer); });
+    L.tileLayer(
+      body.classList.contains('dark') ? darkTiles : lightTiles,
+      { attribution: '&copy; OpenStreetMap contributors' }
+    ).addTo(map);
+    L.marker([33.5779, -101.8552])
+      .addTo(map)
+      .bindPopup('PoopDood Service Area');
+  });
 });
 </script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -687,7 +764,3 @@ toggle.addEventListener('click', () => {
 
 </body>
 </html>
-
-
-
-
