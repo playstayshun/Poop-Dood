@@ -584,7 +584,7 @@
   @media (max-width: 520px) {
     header { padding: 52px 16px 44px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
     .logo { width: 88px; height: 88px; border-radius: 18px; }
-    .header-btns { padding: 0 60px; gap: 8px; }
+    .header-btns { padding: 0 8px; gap: 8px; }
     .btn { padding: 10px 14px; font-size: 0.85rem; border-radius: 10px; }
     section { width: 95%; padding: 28px 16px; margin: 20px auto; border-radius: 16px; }
     section h2 { font-size: 1.4rem; }
@@ -593,6 +593,10 @@
     #map { height: 300px; }
     footer { padding: 32px 16px 24px; }
   }
+
+  /* ── PREVENT HORIZONTAL OVERFLOW ON ALL SCREENS ── */
+  html, body { max-width: 100vw; overflow-x: hidden; }
+  .pricing-list { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
 </style>
 </head>
 <body>
@@ -652,8 +656,6 @@
     </div>
   </div>
 </section>
-
-
 
 <section id="appointment">
   <h2>Book an Appointment</h2>
