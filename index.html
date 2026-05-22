@@ -580,6 +580,60 @@
     footer { padding: 32px 16px 24px; }
   }
 
+
+  /* ── REVIEWS ── */
+  .review-track-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+    margin: 0 -8px;
+  }
+  .review-track-wrap::-webkit-scrollbar { display: none; }
+  .review-track {
+    display: flex;
+    gap: 16px;
+    padding: 8px 8px 4px;
+    width: max-content;
+  }
+  .review-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    width: 260px;
+    flex-shrink: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.4s, border-color 0.4s, box-shadow 0.2s;
+  }
+  @media (hover: hover) { .review-card:hover { box-shadow: var(--shadow-lg); } }
+  .review-stars {
+    color: #f5a623;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  .review-text {
+    font-size: 0.875rem;
+    color: var(--text);
+    line-height: 1.6;
+    flex: 1;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block;
+    justify-content: unset;
+  }
+  .review-text::before { content: none !important; }
+  .review-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+  }
+  body.dark .review-name { color: #a0e860; }
+
   /* ── PREVENT HORIZONTAL OVERFLOW ON ALL SCREENS ── */
   html, body { max-width: 100vw; overflow-x: hidden; }
   .pricing-list { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
@@ -643,6 +697,65 @@
   </div>
 </section>
 
+
+<section id="reviews">
+  <h2>What Lubbock Says</h2>
+  <div class="review-track-wrap">
+    <div class="review-track">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Poop Dood has now been to our house twice and each time has done an amazing job! He is very responsive to texts and lets you know when he gets to your house and when he has finished."</p>
+        <span class="review-name">— Victoria R.</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Corbin is amazing! We needed a last minute pickup before some work done on our fence and he showed up within the hour. Great prices for great work. We will definitely have him back!"</p>
+        <span class="review-name">— Alex L.</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our backyard was an absolute mess and he had us back to gorgeous in about an hour. It's like having a brand new backyard. We will be customers for life!"</p>
+        <span class="review-name">— H. Freeman</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Corbin is AWESOME. He sends a text when he's coming out so we can make sure the dogs are locked up. He's been our GO TO PERSON for over two years and we've never been disappointed."</p>
+        <span class="review-name">— Eronica F.</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Corbin was here less than 30 minutes and made the yard look spotless. 5 star service and company!"</p>
+        <span class="review-name">— Nick G.</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I have 4 dogs — 3 large and one medium. They came in and cleaned it in no time. It looks great! Super hassle free and meticulously done."</p>
+        <span class="review-name">— Joseph M.</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Corbin was polite, prompt and did a wonderful job! My yard was horrible and it looks like there's never been a dog out there! Prices are reasonable — highly recommend!"</p>
+        <span class="review-name">— Gaela L.</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Always so polite and professional. Our doggies love him too!"</p>
+        <span class="review-name">— Tayler A.</span>
+      </div>
+
+    </div>
+  </div>
+  <a class="btn" href="https://share.google/xysIjRStPDYlG6ytR" target="_blank" rel="noopener" style="margin-top:20px; display:inline-flex;">⭐ See All Reviews on Google</a>
+</section>
+
 <section id="appointment">
   <h2>Book an Appointment</h2>
   <form id="appointmentForm">
@@ -664,9 +777,9 @@
 </section>
 
 <section id="one-time">
-  <h2>Do we do one-time pickups?</h2>
+  <h2>Do I do one-time pickups?</h2>
   <p>
-    We offer a one-time cleanup at our regular weekly rate, and as a bonus, you'll get the rest of the month covered if you'd like to continue service. Ready to schedule?
+    Absolutely! Whether it's before a backyard party, an event, or just when life's too busy — PoopDood offers quick, reliable one-time cleanups to make your yard fresh and ready to enjoy.
   </p>
   <a class="btn" href="sms:8067815638?body=Hi!%20I%27m%20wondering%20if%20you%20do%20one-time%20pickups.">💩 Ask About One-Time Pickups</a>
 </section>
