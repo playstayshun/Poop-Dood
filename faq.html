@@ -32,6 +32,8 @@
 <meta name="twitter:image" content="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png">
 <link rel="icon" href="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png" type="image/png">
 <link rel="apple-touch-icon" href="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png">
+
+<!-- BREADCRUMB SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,6 +44,8 @@
   ]
 }
 </script>
+
+<!-- LOCAL BUSINESS SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,26 +67,153 @@
   "sameAs": ["https://www.facebook.com/poopdoodlubbock/","https://www.instagram.com/corbinrkey/"]
 }
 </script>
+
+<!-- FAQ PAGE SCHEMA — all 18 questions, no duplicates -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question","name": "How often do you clean yards?","acceptedAnswer": {"@type": "Answer","text": "PoopDood offers weekly, biweekly (every 2 weeks), twice-a-week, and one-time cleanup services in Lubbock, TX. The right frequency depends on your number of dogs and how fast your yard fills up."}},
-    {"@type": "Question","name": "Do I need to be home during the cleanup?","acceptedAnswer": {"@type": "Answer","text": "No, you do not need to be home. As long as your yard is accessible, PoopDood will handle everything while you are away. You will receive a text when we arrive and again when we are finished."}},
-    {"@type": "Question","name": "What areas do you service in Lubbock, TX?","acceptedAnswer": {"@type": "Answer","text": "PoopDood proudly serves Lubbock, TX and nearby neighborhoods. Text or call us at 806-781-5638 to confirm availability in your specific ZIP code."}},
-    {"@type": "Question","name": "How much does dog poop removal cost?","acceptedAnswer": {"@type": "Answer","text": "Pricing depends on frequency and number of dogs. Every 2 weeks starts at $40/month for 1 dog. Weekly service starts at $50/month for 1 dog. Twice-a-week starts at $90/month for 1 dog. Each plan goes up by a small amount per additional dog. One-time cleanups are also available."}},
-    {"@type": "Question","name": "How do I pay for the service?","acceptedAnswer": {"@type": "Answer","text": "PoopDood accepts Venmo, Cash App, and card payments through secure online invoicing."}},
-    {"@type": "Question","name": "Can I skip a week or pause my service?","acceptedAnswer": {"@type": "Answer","text": "Absolutely. Just text or message us before your scheduled pickup day and we will adjust your schedule. There is no penalty for skipping."}},
-    {"@type": "Question","name": "Do you offer one-time cleanups?","acceptedAnswer": {"@type": "Answer","text": "Yes! PoopDood offers one-time cleanups, which are perfect before backyard parties, events, or whenever life gets too busy. One-time pickups are priced the same as the weekly rate for your number of dogs."}},
-    {"@type": "Question","name": "How do I book an appointment?","acceptedAnswer": {"@type": "Answer","text": "You can book directly on the PoopDood website at poopdood.site, or simply text 806-781-5638. We typically respond very quickly."}},
-    {"@type": "Question","name": "Do you service large yards or properties with multiple dogs?","acceptedAnswer": {"@type": "Answer","text": "Yes. PoopDood handles yards of all sizes and households with multiple dogs. For 5 or more dogs, the monthly rate is $65 (biweekly), $75 (weekly), or $110 (twice a week), with a $5 surcharge per additional dog beyond 5."}},
-    {"@type": "Question","name": "Will I receive a notification when the cleanup is done?","acceptedAnswer": {"@type": "Answer","text": "Yes. PoopDood sends you a text when arriving at your property and again when the job is complete, so you always know when your yard is fresh and ready."}},
-    {"@type": "Question","name": "What payment apps do you accept?","acceptedAnswer": {"@type": "Answer","text": "PoopDood accepts Venmo, Cash App, and card payments via secure online invoicing."}},
-    {"@type": "Question","name": "How do I contact PoopDood?","acceptedAnswer": {"@type": "Answer","text": "Call or text PoopDood at 806-781-5638, or reach out via Facebook at facebook.com/poopdoodlubbock or Instagram at instagram.com/corbinrkey. Business hours are 10am to 8pm, 7 days a week."}}
+    {
+      "@type": "Question",
+      "name": "How much does dog poop removal cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing depends on frequency and number of dogs. Every 2 weeks: 1 dog $40/mo, 2 dogs $50/mo, 3 dogs $55/mo, 4 dogs $60/mo, 5+ dogs $65/mo. Once a week: 1 dog $50/mo, 2 dogs $60/mo, 3 dogs $65/mo, 4 dogs $70/mo, 5+ dogs $75/mo. Twice a week: 1 dog $90/mo, 2 dogs $95/mo, 3 dogs $100/mo, 4 dogs $105/mo, 5+ dogs $110/mo. One-time cleanups: 1 dog $50, 2 dogs $60, 3 dogs $65, 4 dogs $70, 5+ dogs $75. For more than 5 dogs, add $5 per additional dog."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a one-time cleanup cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One-time cleanups are priced the same as the weekly rate based on your number of dogs — starting at $50 for 1 dog, $60 for 2 dogs, $65 for 3 dogs, $70 for 4 dogs, and $75 for 5 or more dogs. Perfect for before a backyard BBQ, a party, or anytime life gets too busy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge extra for large yards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our standard pricing covers most residential yards in Lubbock. If your property is unusually large or has special conditions, text or call us at 806-781-5638 and we will work something out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often do you clean yards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PoopDood offers weekly, every 2 weeks, twice-a-week, and one-time cleanups in Lubbock, TX. A good rule of thumb: 1 to 2 dogs usually do great with weekly or biweekly service, while 3 or more dogs often benefit from twice-a-week visits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I skip a week or pause my service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Just text or message us before your scheduled pickup day and we will adjust your schedule. There are no penalties and no hassle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you come out for a first visit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are usually very quick. Many customers have had us out within hours of reaching out. Text us at 806-781-5638 or fill out the booking form at poopdood.site and we will find the earliest available slot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your business hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PoopDood is available 7 days a week, 10am to 8pm, including weekends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be home during the cleanup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. As long as we can access your yard, we will handle everything while you are at work, running errands, or relaxing inside. We send a text when we arrive and again when the job is done so you always know what is going on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas do you service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PoopDood proudly serves Lubbock, TX and surrounding neighborhoods. Text us your address at 806-781-5638 and we will confirm availability for your specific ZIP code right away."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I get a notification when my yard is done?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PoopDood sends you a text when arriving at your property and again when the job is complete, so you always know the moment your yard is fresh and poop-free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service homes with multiple dogs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PoopDood handles yards of all sizes and households with multiple dogs. For 5 or more dogs, the monthly rate is $65 biweekly, $75 weekly, or $110 twice a week, with a $5 surcharge per additional dog beyond 5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer one-time cleanups?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PoopDood offers one-time cleanups, which are perfect before backyard parties, events, or whenever life gets too busy. One-time pickups are priced the same as the weekly rate for your number of dogs, starting at $50 for 1 dog."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I pay for the service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PoopDood accepts Venmo, Cash App, and card payments through secure online invoicing. No cash required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do I get charged?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly recurring customers are invoiced at the start of each billing period. One-time customers are invoiced after the cleanup is complete. Text us at 806-781-5638 with any questions about your invoice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book an appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can book directly on the PoopDood website at poopdood.site using the online appointment form, or simply text 806-781-5638. We respond fast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas do you service in Lubbock, TX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PoopDood serves Lubbock, TX and nearby neighborhoods. Text or call 806-781-5638 to confirm availability in your specific ZIP code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact PoopDood?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call or text PoopDood at 806-781-5638, or reach out via Facebook at facebook.com/poopdoodlubbock or Instagram at instagram.com/corbinrkey. Business hours are 10am to 8pm, 7 days a week."
+      }
+    }
   ]
 }
 </script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -287,6 +418,9 @@ body.dark .intro-card h2 { color: #a0e860; }
   max-width: 620px;
   margin: 0 auto;
 }
+.intro-card a { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
+.intro-card a:hover { text-decoration: underline; }
+body.dark .intro-card a { color: #a0e860; }
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -378,17 +512,16 @@ body.dark .faq-question .q-icon { color: #a0e860; }
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  transition: max-height 0.35s ease;
 }
-.faq-item.open .faq-answer { max-height: 400px; }
+.faq-item.open .faq-answer { max-height: 500px; }
 .faq-answer-inner {
-  padding: 0 20px 20px;
+  padding: 14px 20px 20px;
   font-size: 0.97rem;
   color: var(--text-2);
   line-height: 1.7;
   text-align: left;
   border-top: 1px solid var(--border);
-  padding-top: 14px;
 }
 .faq-answer-inner a {
   color: var(--primary-dark);
@@ -556,7 +689,8 @@ body.dark .footer-links .btn:hover {
 
   <div id="faqContainer" role="region" aria-label="Frequently Asked Questions">
 
-    <div class="faq-section-title" aria-hidden="true" data-category="pricing">💵 Pricing</div>
+    <!-- PRICING -->
+    <div class="faq-section-title" data-category="pricing">💵 Pricing</div>
 
     <div class="faq-item" data-category="pricing">
       <button class="faq-question" aria-expanded="false">
@@ -599,7 +733,8 @@ body.dark .footer-links .btn:hover {
       </div>
     </div>
 
-    <div class="faq-section-title" aria-hidden="true" data-category="scheduling">📅 Scheduling</div>
+    <!-- SCHEDULING -->
+    <div class="faq-section-title" data-category="scheduling">📅 Scheduling</div>
 
     <div class="faq-item" data-category="scheduling">
       <button class="faq-question" aria-expanded="false">
@@ -632,7 +767,7 @@ body.dark .footer-links .btn:hover {
       </button>
       <div class="faq-answer" role="region">
         <div class="faq-answer-inner">
-          We're usually very quick! Many customers have had us out within hours of reaching out. <a href="sms:8067815638?body=Hi!%20I'd%20like%20to%20schedule%20a%20pickup!">Text us</a> or <a href="https://poopdood.site/">fill out the form</a> and we'll find the earliest available slot for you.
+          We're usually very quick! Many customers have had us out within hours of reaching out. <a href="sms:8067815638?body=Hi!%20I'd%20like%20to%20schedule%20a%20pickup!">Text us</a> or <a href="index.html#appointment">fill out the form</a> and we'll find the earliest available slot for you.
         </div>
       </div>
     </div>
@@ -649,7 +784,8 @@ body.dark .footer-links .btn:hover {
       </div>
     </div>
 
-    <div class="faq-section-title" aria-hidden="true" data-category="service">🏡 Service</div>
+    <!-- SERVICE -->
+    <div class="faq-section-title" data-category="service">🏡 Service</div>
 
     <div class="faq-item" data-category="service">
       <button class="faq-question" aria-expanded="false">
@@ -694,7 +830,7 @@ body.dark .footer-links .btn:hover {
       </button>
       <div class="faq-answer" role="region">
         <div class="faq-answer-inner">
-          Absolutely — we've cleaned yards with 4, 5, even more dogs. Larger packs just mean we add a small amount to the base rate. Check our <a href="https://poopdood.site/">pricing table</a> or <a href="sms:8067815638">text us</a> for your custom quote.
+          Absolutely — we've cleaned yards with 4, 5, even more dogs. Larger packs just mean we add a small amount to the base rate. Check our <a href="index.html#services">pricing table</a> or <a href="sms:8067815638">text us</a> for your custom quote.
         </div>
       </div>
     </div>
@@ -711,7 +847,8 @@ body.dark .footer-links .btn:hover {
       </div>
     </div>
 
-    <div class="faq-section-title" aria-hidden="true" data-category="payment">💳 Payment</div>
+    <!-- PAYMENT -->
+    <div class="faq-section-title" data-category="payment">💳 Payment</div>
 
     <div class="faq-item" data-category="payment">
       <button class="faq-question" aria-expanded="false">
@@ -744,12 +881,12 @@ body.dark .footer-links .btn:hover {
       </button>
       <div class="faq-answer" role="region">
         <div class="faq-answer-inner">
-          Two easy ways: fill out the <a href="https://poopdood.site/">online booking form</a> on our homepage, or simply <a href="sms:8067815638?body=Hi!%20I'd%20like%20to%20schedule%20a%20pickup!">text us at 806-781-5638</a>. We respond fast!
+          Two easy ways: fill out the <a href="index.html#appointment">online booking form</a> on our homepage, or simply <a href="sms:8067815638?body=Hi!%20I'd%20like%20to%20schedule%20a%20pickup!">text us at 806-781-5638</a>. We respond fast!
         </div>
       </div>
     </div>
 
-  </div>
+  </div><!-- /faqContainer -->
 
   <div class="cta-card" role="complementary" aria-label="Contact Call to Action">
     <h2>Still have a question?</h2>
@@ -757,8 +894,8 @@ body.dark .footer-links .btn:hover {
     <div class="cta-btns">
       <a class="btn" href="tel:8067815638">📞 Call Us</a>
       <a class="btn" href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a>
-      <a class="btn" href="https://poopdood.site/">📋 Book Online</a>
-      <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank" rel="noopener">Facebook</a>
+      <a class="btn" href="index.html#appointment">📋 Book Online</a>
+      <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank" rel="noopener noreferrer">Facebook</a>
     </div>
   </div>
 
@@ -772,7 +909,7 @@ body.dark .footer-links .btn:hover {
     <a class="btn" href="https://poopdood.site/about.html">🐾 About</a>
     <a class="btn" href="https://poopdood.site/faq.html">💩 FAQ</a>
     <a class="btn" href="tel:8067815638">📞 Call</a>
-    <a class="btn" href="https://share.google/xysIjRStPDYlG6ytR" target="_blank" rel="noopener">⭐ Reviews</a>
+    <a class="btn" href="https://share.google/xysIjRStPDYlG6ytR" target="_blank" rel="noopener noreferrer">⭐ Reviews</a>
   </nav>
 </footer>
 
@@ -850,8 +987,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <style>
   #chatWidget {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 20px; right: 20px;
     z-index: 9998;
     display: flex;
     flex-direction: column;
@@ -859,30 +995,20 @@ document.addEventListener('DOMContentLoaded', () => {
     gap: 10px;
     font-family: var(--font-body);
   }
-
   #chatToggle {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: none;
-    background: var(--primary);
-    color: #fff;
-    font-size: 1.4rem;
-    cursor: pointer;
+    width: 52px; height: 52px;
+    border-radius: 50%; border: none;
+    background: var(--primary); color: #fff;
+    font-size: 1.4rem; cursor: pointer;
     box-shadow: 0 4px 18px rgba(92,200,42,0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
     flex-shrink: 0;
   }
   @media (hover: hover) { #chatToggle:hover { transform: scale(1.08); background: var(--primary-dark); } }
-
   #chatPanel {
-    display: none;
-    flex-direction: column;
-    width: 300px;
-    max-height: 420px;
+    display: none; flex-direction: column;
+    width: 300px; max-height: 420px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 18px;
@@ -891,120 +1017,68 @@ document.addEventListener('DOMContentLoaded', () => {
     transition: background 0.4s, border-color 0.4s;
   }
   #chatPanel.open { display: flex; }
-
   #chatHeader {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #fff;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: 700;
-    font-size: 0.9rem;
-    flex-shrink: 0;
+    color: #fff; padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
   }
   #chatHeader span { display: flex; align-items: center; gap: 6px; }
-
   #chatClose {
-    background: none;
-    border: none;
+    background: none; border: none;
     color: rgba(255,255,255,0.85);
-    font-size: 1rem;
-    cursor: pointer;
-    line-height: 1;
-    padding: 2px 4px;
-    border-radius: 4px;
-    transition: color 0.2s;
+    font-size: 1rem; cursor: pointer;
+    padding: 2px 4px; border-radius: 4px; transition: color 0.2s;
   }
   #chatClose:hover { color: #fff; }
-
   #chatMessages {
-    flex: 1;
-    overflow-y: auto;
+    flex: 1; overflow-y: auto;
     padding: 14px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: flex; flex-direction: column; gap: 10px;
     scroll-behavior: smooth;
   }
   #chatMessages::-webkit-scrollbar { width: 4px; }
   #chatMessages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-
   .chat-msg {
-    max-width: 88%;
-    padding: 9px 13px;
-    border-radius: 14px;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    word-break: break-word;
+    max-width: 88%; padding: 9px 13px;
+    border-radius: 14px; font-size: 0.875rem;
+    line-height: 1.5; word-break: break-word;
   }
   .chat-msg.bot {
-    background: var(--surface-2);
-    color: var(--text);
-    border-bottom-left-radius: 4px;
-    align-self: flex-start;
+    background: var(--surface-2); color: var(--text);
+    border-bottom-left-radius: 4px; align-self: flex-start;
     border: 1px solid var(--border);
   }
   .chat-msg.user {
-    background: var(--primary);
-    color: #fff;
-    border-bottom-right-radius: 4px;
-    align-self: flex-end;
+    background: var(--primary); color: #fff;
+    border-bottom-right-radius: 4px; align-self: flex-end;
   }
   .chat-msg.typing {
-    background: var(--surface-2);
-    color: var(--text-2);
-    align-self: flex-start;
-    border: 1px solid var(--border);
-    font-style: italic;
-    font-size: 0.82rem;
-    border-bottom-left-radius: 4px;
+    background: var(--surface-2); color: var(--text-2);
+    align-self: flex-start; border: 1px solid var(--border);
+    font-style: italic; font-size: 0.82rem; border-bottom-left-radius: 4px;
   }
-
   #chatInputRow {
-    display: flex;
-    gap: 8px;
-    padding: 10px 12px;
+    display: flex; gap: 8px; padding: 10px 12px;
     border-top: 1px solid var(--border);
-    background: var(--surface);
-    flex-shrink: 0;
+    background: var(--surface); flex-shrink: 0;
   }
-
   #chatInput {
-    flex: 1;
-    padding: 9px 12px;
-    font-size: 0.875rem;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface-2);
-    color: var(--text);
-    outline: none;
-    font-family: var(--font-body);
-    max-width: unset;
-    width: auto;
-    display: block;
+    flex: 1; padding: 9px 12px; font-size: 0.875rem;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    background: var(--surface-2); color: var(--text);
+    outline: none; font-family: var(--font-body);
     transition: border-color 0.2s;
   }
   #chatInput:focus { border-color: var(--primary); }
-
   #chatSend {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    border: none;
-    background: var(--primary);
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 36px; height: 36px; border-radius: 10px; border: none;
+    background: var(--primary); color: #fff; font-size: 1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     transition: background 0.2s;
   }
   #chatSend:disabled { opacity: 0.5; cursor: not-allowed; }
   @media (hover: hover) { #chatSend:hover:not(:disabled) { background: var(--primary-dark); } }
-
   @media (max-width: 520px) {
     #chatPanel { width: calc(100vw - 32px); max-height: 380px; }
     #chatWidget { right: 16px; bottom: 16px; }
@@ -1032,7 +1106,6 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
   const GROQ_KEY   = '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';
   const GROQ_MODEL = 'llama-3.3-70b-versatile';
-
   const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to call or text. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs; tell them it is $5 per dog and add the correct amount.
 
 BUSINESS INFO:
@@ -1050,35 +1123,25 @@ Twice a Week: 1 dog $90/mo | 2 dogs $95/mo | 3 dogs $100/mo | 4 dogs $105/mo | 5
 One-time cleanups: available, same price as Once a Week. Covers the month if customer wants.
 
 SERVICE AREA: Lubbock, TX and surrounding neighborhoods. For specific ZIP availability, tell them to text.
-
 BOOKING: Customers can fill out the form on the website or text 806-781-5638 directly.
-
 Keep responses under 3 sentences when possible. Use a friendly, casual tone. End with a helpful nudge to book or text if appropriate.`;
 
-  const panel    = document.getElementById('chatPanel');
-  const toggle   = document.getElementById('chatToggle');
+  const panel = document.getElementById('chatPanel');
+  const toggle = document.getElementById('chatToggle');
   const closeBtn = document.getElementById('chatClose');
   const messages = document.getElementById('chatMessages');
-  const input    = document.getElementById('chatInput');
-  const sendBtn  = document.getElementById('chatSend');
-
-  const history  = [];
-  let   busy     = false;
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+  const history = [];
+  let busy = false;
 
   toggle.addEventListener('click', () => {
     const isOpen = panel.classList.toggle('open');
     toggle.textContent = isOpen ? '✕' : '🐾';
-    if (isOpen) { setTimeout(() => input.focus(), 150); }
+    if (isOpen) setTimeout(() => input.focus(), 150);
   });
-
-  closeBtn.addEventListener('click', () => {
-    panel.classList.remove('open');
-    toggle.textContent = '🐾';
-  });
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
-  });
+  closeBtn.addEventListener('click', () => { panel.classList.remove('open'); toggle.textContent = '🐾'; });
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
   sendBtn.addEventListener('click', send);
 
   function addMsg(text, role) {
@@ -1093,51 +1156,27 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
   async function send() {
     const text = input.value.trim();
     if (!text || busy) return;
-
-    busy = true;
-    sendBtn.disabled = true;
-    input.value = '';
-    input.disabled = true;
-
+    busy = true; sendBtn.disabled = true; input.value = ''; input.disabled = true;
     addMsg(text, 'user');
     history.push({ role: 'user', content: text });
-
     const typing = addMsg('PoopDood is typing…', 'typing');
-
     try {
       const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${GROQ_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: GROQ_MODEL,
-          max_tokens: 200,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...history
-          ]
-        })
+        headers: { 'Authorization': `Bearer ${GROQ_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: GROQ_MODEL, max_tokens: 200, messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...history] })
       });
-
       if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I didn't catch that. Text us at 806-781-5638!";
-
       history.push({ role: 'assistant', content: reply });
       typing.remove();
       addMsg(reply, 'bot');
-
     } catch (err) {
       typing.remove();
       addMsg("Hmm, something went wrong on my end. Text us at 806-781-5638 and we'll help you out!", 'bot');
-      console.error('Groq error:', err);
     } finally {
-      busy = false;
-      sendBtn.disabled = false;
-      input.disabled = false;
-      input.focus();
+      busy = false; sendBtn.disabled = false; input.disabled = false; input.focus();
     }
   }
 })();
