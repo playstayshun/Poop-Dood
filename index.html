@@ -664,19 +664,32 @@
 
   /* ── REVIEWS ── */
   .review-track-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 8px;
-    margin: 0 -8px;
-  }
-  .review-track-wrap::-webkit-scrollbar { display: none; }
-  .review-track {
-    display: flex;
-    gap: 16px;
-    padding: 8px 8px 4px;
-    width: max-content;
-  }
+  overflow: hidden;
+  padding-bottom: 8px;
+  margin: 0 -8px;
+  position: relative;
+  /* fade edges left and right so cards slide in/out smoothly */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+ 
+.review-track {
+  display: flex;
+  gap: 16px;
+  padding: 8px 8px 4px;
+  width: max-content;
+  animation: scrollReviews 40s linear infinite;
+}
+ 
+/* Pause on hover so users can read a card */
+.review-track:hover {
+  animation-play-state: paused;
+}
+ 
+@keyframes scrollReviews {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
   .review-card {
     background: var(--surface-2);
     border: 1px solid var(--border);
@@ -719,7 +732,9 @@
   html, body { max-width: 100vw; overflow-x: hidden; }
   .pricing-list { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
 </style>
+
 </head>
+
 <body>
 
 <button id="darkToggle" title="Toggle dark mode">🌙</button>
@@ -1296,6 +1311,15 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
       input.focus();
     }
   }
+})();
+</script>
+
+<script>
+(function () {
+  const track = document.querySelector('.review-track');
+  if (!track) return;
+  // Clone all cards and append so the scroll loops seamlessly
+  track.innerHTML += track.innerHTML;
 })();
 </script>
 
