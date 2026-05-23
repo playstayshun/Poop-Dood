@@ -587,6 +587,103 @@
     border-color: #e74c3c;
   }
 
+/* ── PRICE ESTIMATOR ── */
+.price-estimate {
+  display: none;
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(92,200,42,0.35);
+  position: relative;
+  overflow: hidden;
+}
+.price-estimate::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  pointer-events: none;
+}
+.price-estimate.show {
+  display: block;
+  animation: priceIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.price-estimate.bump {
+  animation: priceBump 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes priceIn {
+  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes priceBump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.price-estimate-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.price-estimate-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.price-estimate-dollar {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.9);
+  align-self: flex-start;
+  margin-top: 6px;
+}
+.price-estimate-amount {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  color: #fff;
+  line-height: 1;
+}
+.price-estimate-per {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  align-self: flex-end;
+  margin-bottom: 6px;
+}
+.price-estimate-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+}
+body.dark .price-estimate {
+  background: linear-gradient(135deg, #2d6118, #1a3d0d);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+}
+ 
+/* ── FORM TRUST STRIP ── */
+.form-trust {
+  font-size: 0.78rem;
+  color: var(--text-2);
+  margin-top: 4px !important;
+  letter-spacing: 0.2px;
+}
+.form-trust span {
+  opacity: 0.4;
+  margin: 0 5px;
+}
+
   /* ── MAP ── */
   #map {
     width: 100%;
@@ -855,11 +952,12 @@
 <section id="appointment">
   <h2>Book an Appointment</h2>
   <form id="appointmentForm">
-    <input type="text" id="name" placeholder="First and Last Name" required>
-    <input type="text" id="address" placeholder="Your Address" required>
-    <input type="tel" id="number" placeholder="Phone Number" required>
-    <input type="number" id="dogs" placeholder="Number of Dogs" min="1" required>
-    <input type="text" id="date" placeholder="Select a date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
+    <input type="text"   id="name"      placeholder="First and Last Name"  required>
+    <input type="text"   id="address"   placeholder="Your Address"         required>
+    <input type="tel"    id="number"    placeholder="Phone Number"         required>
+    <input type="number" id="dogs"      placeholder="Number of Dogs" min="1" required>
+    <input type="text"   id="date"      placeholder="Select a date"
+           onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
     <select id="frequency" required>
       <option value="" disabled selected>Select Frequency</option>
       <option value="One Time Pickup">One Time Pickup</option>
@@ -867,7 +965,20 @@
       <option value="Bi-Weekly">Bi-Weekly</option>
       <option value="Twice a Week">Twice a Week</option>
     </select>
+ 
+    <!-- Live price estimator — shown when dogs + frequency are filled -->
+    <div id="priceEstimate" class="price-estimate" role="status" aria-live="polite">
+      <span class="price-estimate-label">Your estimated price</span>
+      <div class="price-estimate-row">
+        <span class="price-estimate-dollar">$</span>
+        <span class="price-estimate-amount" id="priceAmount">50</span>
+        <span class="price-estimate-per"    id="pricePer">/mo</span>
+      </div>
+      <p class="price-estimate-note" id="priceNote"></p>
+    </div>
+ 
     <button type="submit" class="submit-btn" id="submitBtn">Book My Cleanup 💩</button>
+    <p class="form-trust">No contract <span>·</span> Cancel anytime <span>·</span> We'll text you to confirm</p>
     <div id="formStatus"></div>
   </form>
 </section>
@@ -917,23 +1028,82 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
+  
+  // ── LIVE PRICE CALCULATOR ──
+  const PRICING = {
+    'One Time Pickup': [50, 60, 65, 70, 75],
+    'Weekly':          [50, 60, 65, 70, 75],
+    'Bi-Weekly':       [40, 50, 55, 60, 65],
+    'Twice a Week':    [90, 95, 100, 105, 110]
+  };
+  const PER_LABEL = {
+    'One Time Pickup': 'one-time',
+    'Weekly':          '/mo',
+    'Bi-Weekly':       '/mo',
+    'Twice a Week':    '/mo'
+  };
+  const FREQ_NAME = {
+    'One Time Pickup': 'one-time cleanup',
+    'Weekly':          'weekly service',
+    'Bi-Weekly':       'every 2 weeks',
+    'Twice a Week':    'twice a week'
+  };
+ 
+  function calcPrice(dogs, freq) {
+    const tier = PRICING[freq];
+    if (!tier) return null;
+    // 1–5 dogs use the table; 6+ adds $5 per dog over 5
+    if (dogs <= 5) return tier[dogs - 1];
+    return tier[4] + (dogs - 5) * 5;
+  }
+ 
+  function updatePrice() {
+    const dogs  = parseInt(document.getElementById('dogs').value, 10);
+    const freq  = document.getElementById('frequency').value;
+    const box   = document.getElementById('priceEstimate');
+ 
+    if (!dogs || dogs < 1 || !freq) {
+      box.classList.remove('show');
+      return;
+    }
+ 
+    const price = calcPrice(dogs, freq);
+    if (!price) { box.classList.remove('show'); return; }
+ 
+    document.getElementById('priceAmount').textContent = price;
+    document.getElementById('pricePer').textContent    = PER_LABEL[freq];
+    document.getElementById('priceNote').textContent   =
+      `Based on ${dogs} dog${dogs > 1 ? 's' : ''}, ${FREQ_NAME[freq]}`;
+ 
+    if (box.classList.contains('show')) {
+      // already visible — just bump it
+      box.classList.remove('bump');
+      void box.offsetWidth; // reflow to retrigger
+      box.classList.add('bump');
+    } else {
+      box.classList.add('show');
+    }
+  }
+ 
+  document.getElementById('dogs').addEventListener('input',  updatePrice);
+  document.getElementById('frequency').addEventListener('change', updatePrice);
+ 
   // ── FORM SUBMIT → ntfy.sh ──
   const NTFY_TOPIC = 'poopdood-lubbock-k9x4m';
-
-  const form       = document.getElementById('appointmentForm');
-  const submitBtn  = document.getElementById('submitBtn');
-  const formStatus = document.getElementById('formStatus');
-
+  const form        = document.getElementById('appointmentForm');
+  const submitBtn   = document.getElementById('submitBtn');
+  const formStatus  = document.getElementById('formStatus');
+ 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+ 
     const name      = document.getElementById('name').value.trim();
     const address   = document.getElementById('address').value.trim();
     const phone     = document.getElementById('number').value.trim();
     const dogs      = document.getElementById('dogs').value;
     const date      = document.getElementById('date').value;
     const frequency = document.getElementById('frequency').value;
-
+ 
     const message =
       `New Appointment Request!\n\n` +
       `Name: ${name}\n` +
@@ -942,42 +1112,45 @@ document.addEventListener('DOMContentLoaded', () => {
       `Dogs: ${dogs}\n` +
       `Date: ${date}\n` +
       `Frequency: ${frequency}`;
-
-    submitBtn.disabled = true;
+ 
+    submitBtn.disabled    = true;
     submitBtn.textContent = 'Sending… 🐾';
-    formStatus.className = '';
+    formStatus.className  = '';
     formStatus.style.display = 'none';
-
+ 
     try {
       const res = await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
         method: 'POST',
         headers: {
-          'Title':    'PoopDood Appointment',
-          'Priority': 'high',
-          'Tags':     'dog,calendar',
+          'Title':        'PoopDood Appointment',
+          'Priority':     'high',
+          'Tags':         'dog,calendar',
           'Content-Type': 'text/plain; charset=UTF-8'
         },
         body: message
       });
-
+ 
       if (res.ok) {
-        formStatus.className = 'success';
-        formStatus.textContent = '✅ Appointment sent! We\'ll be in touch soon.';
+        formStatus.className   = 'success';
+        formStatus.textContent = "✅ Appointment sent! We'll be in touch soon.";
         form.reset();
+        document.getElementById('priceEstimate').classList.remove('show');
       } else {
         const errText = await res.text().catch(() => '');
         throw new Error(`ntfy ${res.status}: ${errText}`);
       }
     } catch (err) {
       console.error('ntfy error:', err);
-      formStatus.className = 'error';
+      formStatus.className   = 'error';
       formStatus.textContent = `❌ Something went wrong (${err.message}). Please text us directly at 806-781-5638.`;
     } finally {
       formStatus.style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Appointment 💩';
+      submitBtn.disabled       = false;
+      submitBtn.textContent    = 'Book My Cleanup 💩';
     }
   });
+
+
 
   // ── LEAFLET MAP ──
   const lightTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
