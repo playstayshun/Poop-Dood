@@ -264,27 +264,69 @@ body.dark .dog { opacity: 0.035; }
   border-bottom-right-radius: 36px;
   overflow: hidden;
 }
+
+/* CONFIG */
+.header-slides {
+  --slide-count: 22;      /* 👈 number of images */
+  --slide-duration: 5s;  /* 👈 time each image is visible */
+}
+
+/* Slide styling */
 .header-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: headerSlide 18s infinite;
+  animation-name: headerSlide;
+  animation-duration: calc(var(--slide-count) * var(--slide-duration));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-.header-slide:nth-child(1) { animation-delay: 0s; }
-.header-slide:nth-child(2) { animation-delay: 6s; }
-.header-slide:nth-child(3) { animation-delay: 12s; }
-@keyframes headerSlide {
-  0%        { opacity: 0; }
-  8%        { opacity: 0.18; }
-  33%       { opacity: 0.18; }
-  41%       { opacity: 0; }
-  100%      { opacity: 0; }
-}
-body.dark .header-slide { opacity: 0; }
-body.dark .header-slide { filter: brightness(0.4); }
 
+/* Auto-delay each slide */
+.header-slide:nth-child(n) {
+  animation-delay: calc(
+    (var(--slide-duration)) * (var(--i))
+  );
+}
+
+/* Assign index */
+.header-slide:nth-child(1)  { --i: 0; }
+.header-slide:nth-child(2)  { --i: 1; }
+.header-slide:nth-child(3)  { --i: 2; }
+.header-slide:nth-child(4)  { --i: 3; }
+.header-slide:nth-child(5)  { --i: 4; }
+.header-slide:nth-child(6)  { --i: 5; }
+.header-slide:nth-child(7)  { --i: 6; }
+.header-slide:nth-child(8)  { --i: 7; }
+.header-slide:nth-child(9)  { --i: 8; }
+.header-slide:nth-child(10) { --i: 9; }
+.header-slide:nth-child(11) { --i: 10; }
+.header-slide:nth-child(12) { --i: 11; }
+.header-slide:nth-child(13) { --i: 12; }
+.header-slide:nth-child(14) { --i: 13; }
+.header-slide:nth-child(15) { --i: 14; }
+.header-slide:nth-child(16) { --i: 15; }
+.header-slide:nth-child(17) { --i: 16; }
+.header-slide:nth-child(18) { --i: 17; }
+.header-slide:nth-child(19) { --i: 18; }
+.header-slide:nth-child(20) { --i: 19; }
+.header-slide:nth-child(21) { --i: 20; }
+.header-slide:nth-child(22) { --i: 21; }
+
+/* Fade animation */
+@keyframes headerSlide {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  35%  { opacity: 1; }
+  45%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+/* Dark mode */
+body.dark .header-slide {
+  filter: brightness(0.4);
+}
 /* ════════════════════════════════
    HEADER
 ════════════════════════════════ */
@@ -665,11 +707,30 @@ body.dark .footer-links .btn:hover {
 <header>
     
     <!-- Background slideshow -->
-  <div class="header-slides">
-    <div class="header-slide" style="background-image:url('https://i.ibb.co/S4zYr6jt/Lubbock-Hero-i-Stock-1367955777-scaled-1024x650.webp')"></div>
-    <div class="header-slide" style="background-image:url('https://i.ibb.co/hJpt7zfd/buddyholly.webp')"></div>
-    <div class="header-slide" style="background-image:url('https://i.ibb.co/d02L8PSC/Getty-Images-2247190446.webp')"></div>
-  </div>
+<div class="header-slides">
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/XxSWVJmt/IMG-0459.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/QjjpbQ5H/IMG-0507.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/KzfxR9nF/IMG-1355.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/hJFWXWV5/IMG-1399.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/Fk3V6Cck/IMG-1445.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/Z1Txd17b/IMG-1496.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/fdMQF2FF/IMG-1500.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/zhQFKfZV/IMG-2130.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/1JpBFcHT/IMG-2135.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/x82myM9T/IMG-2188.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/mV5k8PmL/IMG-2417.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/39YTjF4F/IMG-2562.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/JW1s4fQR/IMG-2581.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/4z3Gn1n/IMG-2582.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/F98cj2n/IMG-2603.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/jPVvHf9R/IMG-2604.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/9Hkh6pVf/IMG-2605.jpg')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/qFRpBfWF/IMG-2606.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/2740mnkZ/IMG-3553.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/1f8Cp6bY/IMG-4667.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/spMCm2hS/IMG-5101.png')"></div>
+  <div class="header-slide" style="background-image:url('https://i.ibb.co/99RpPHMr/IMG-6152.png')"></div>
+</div>
     
   <img src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png" alt="PoopDood Logo" class="logo" width="90" height="90">
 
