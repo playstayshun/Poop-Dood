@@ -179,6 +179,7 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <style>
+
   /* ── TOKENS ── */
   :root {
     --primary:      #5CC82A;
@@ -435,6 +436,19 @@ body.dark .ba-label.after { color: #a0e860; }
       color: var(--accent);
     }
   }
+/* ── MAIN NAV ── */
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
+  margin-bottom: 16px;
+}
+nav.main-nav a.active {
+  background: var(--accent);
+  color: var(--primary-dark);
+}
 
   /* ── SECTIONS ── */
   section {
@@ -928,13 +942,17 @@ body.dark .price-estimate {
   />
   <h1>POOP DOOD©</h1>
   <p>Your Dog, Our Mess. — Lubbock's Trusted Pooper Scooper</p>
-  <div class="header-btns">
-    <!-- ADDED: rel="noopener noreferrer" to external links -->
+  <nav class="main-nav" aria-label="Main Navigation" style="margin-bottom:16px;">
+  <a class="btn active" href="index.html" aria-current="page">🏠 Home</a>
+  <a class="btn" href="about.html">🐾 About</a>
+  <a class="btn" href="faq.html">💩 FAQ</a>
+</nav>
+<div class="header-btns">
     <a class="btn" href="tel:8067815638">📞 Call Us</a>
     <a class="btn" href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a>
     <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank" rel="noopener noreferrer">Facebook</a>
     <a class="btn" href="https://www.instagram.com/corbinrkey/" target="_blank" rel="noopener noreferrer">Instagram</a>
-  </div>
+</div>
 </header>
 
 <section id="services">
