@@ -857,7 +857,7 @@ body.dark .footer-links .btn:hover {
       </button>
       <div class="faq-answer" role="region">
         <div class="faq-answer-inner">
-          We accept <strong>Venmo</strong>, <strong>Cash App</strong>, and <strong>card payments</strong> through secure online invoicing. Easy and convenient — no cash required.
+          We accept <strong>Venmo</strong>, <strong>Cash App</strong>, and <strong>card payments</strong> through secure online invoicing. Easy and convenient — And of course <strong>Cash<strong>.
         </div>
       </div>
     </div>
@@ -1105,8 +1105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 (function () {
   const GROQ_MODEL = 'llama-3.3-70b-versatile';
-
-  const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to call or text. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs; tell them it is $5 per dog and add the correct amount.
+  const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. You are embedded on the FAQ page. If a user asks something already covered in the FAQ, give them a quick friendly answer and mention they can read more on this page. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to call or text. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs, add $5 per additional dog beyond 5.
 
 BUSINESS INFO:
 - Name: PoopDood
@@ -1120,13 +1119,24 @@ PRICING:
 Every 2 Weeks: 1 dog $40/mo | 2 dogs $50/mo | 3 dogs $55/mo | 4 dogs $60/mo | 5+ dogs $65/mo
 Once a Week: 1 dog $50/mo | 2 dogs $60/mo | 3 dogs $65/mo | 4 dogs $70/mo | 5+ dogs $75/mo
 Twice a Week: 1 dog $90/mo | 2 dogs $95/mo | 3 dogs $100/mo | 4 dogs $105/mo | 5+ dogs $110/mo
-One-time cleanups: available, same price as Once a Week. Covers the month if customer wants.
+One-time cleanups: same price as Once a Week — starting at $50 for 1 dog.
 
-SERVICE AREA: Lubbock, TX and surrounding neighborhoods. For specific ZIP availability, tell them to text.
+FAQ KNOWLEDGE — answer these confidently:
+- Do I need to be home? No. We text when we arrive and when done.
+- How fast can you come out? Often within hours of reaching out.
+- Large yards? Standard pricing covers most Lubbock residential yards. Text for special cases.
+- Skip or pause service? Yes, just text before your scheduled day. No penalties.
+- Payment methods? Venmo, Cash App, and card through secure online invoicing. We also accept Cash.
+- When is payment due? Monthly customers invoiced at start of billing period. One-time customers invoiced after cleanup.
+- Notifications? Yes — text when arriving and again when finished.
+- Multiple dogs? Yes, we handle any number. 5+ dogs add $5 per dog beyond 5.
+- Need to be home? Nope, just need yard access.
+- Service area? Lubbock TX and surrounding neighborhoods. Text address to confirm ZIP.
+- Contracts? No contracts. Skip, pause, or cancel anytime.
+- One-time cleanups? Yes! Perfect before parties or events. Text 806-781-5638 to book.
+- How to book? Fill out the form at poopdood.site or text 806-781-5638.
 
-BOOKING: Customers can fill out the form on the website or text 806-781-5638 directly.
-
-Keep responses under 3 sentences when possible. Use a friendly, casual tone. End with a helpful nudge to book or text if appropriate.`;
+Keep responses under 3 sentences. Friendly and casual tone. End with a nudge to book or text if appropriate.`;
 
   const panel    = document.getElementById('chatPanel');
   const toggle   = document.getElementById('chatToggle');
@@ -1166,23 +1176,17 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
   async function send() {
     const text = input.value.trim();
     if (!text || busy) return;
-
     busy = true;
     sendBtn.disabled = true;
     input.value = '';
     input.disabled = true;
-
     addMsg(text, 'user');
     history.push({ role: 'user', content: text });
-
     const typing = addMsg('PoopDood is typing…', 'typing');
-
     try {
       const res = await fetch('https://young-wind-447b.corbinkey007.workers.dev', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: GROQ_MODEL,
           max_tokens: 200,
@@ -1192,18 +1196,15 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
           ]
         })
       });
-
       if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I didn't catch that. Text us at 806-781-5638!";
-
       history.push({ role: 'assistant', content: reply });
       typing.remove();
       addMsg(reply, 'bot');
-
     } catch (err) {
       typing.remove();
-      addMsg("Hmm, something went wrong on my end. Text us at 806-781-5638 and we'll help you out!", 'bot');
+      addMsg("Hmm, something went wrong. Text us directly at 806-781-5638 and we'll sort you out!", 'bot');
       console.error('Groq error:', err);
     } finally {
       busy = false;
