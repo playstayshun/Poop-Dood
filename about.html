@@ -926,7 +926,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <button id="chatClose" aria-label="Close chat">✕</button>
     </div>
     <div id="chatMessages">
-      <div class="chat-msg bot">Hi! Want to know your monthly price? Just tell me how many dogs you have 🐾</div>
+      <div class="chat-msg bot">Hey! I'm Corbin's assistant 🐾 Ask me anything about PoopDood — or Buster the cat 😂</div>
     </div>
     <div id="chatInputRow">
       <input type="text" id="chatInput" placeholder="Ask a question…" maxlength="300" autocomplete="off">
@@ -939,8 +939,19 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 (function () {
   const GROQ_MODEL = 'llama-3.3-70b-versatile';
+  const SYSTEM_PROMPT = `You are a friendly, personable assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. You are on the About page, so you know Corbin personally and can share fun facts about him. Be warm, a little goofy, and genuine — just like Corbin himself. Keep answers short. Never make up info; if unsure, tell them to call or text. Never give wrong prices; if unsure, tell them to text.
 
-  const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to call or text. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs; tell them it is $5 per dog and add the correct amount.
+ABOUT CORBIN:
+- Founder and owner of PoopDood, based in Lubbock TX
+- His dad suggested the business idea. Corbin hesitated for a year, then woke up one day and just went for it — made all the logos and branding himself. He says it was one of the most fun things he's ever done.
+- He is a relaxed, laid-back guy. Professional but makes you smile. Open to talk about anything but also respects people's space. He loves everyone and just wants to get the job done.
+- He has a dog named Niyah — half Australian Shepherd, half pit bull. His mom gave Niyah to him because she was "too crazy" (Corbin thinks it was really because she was too hairy — his mom gave him a vacuum the same day 😂).
+- He also has an orange cat named Buster, but he calls him Kitty Meow. He never planned on having a cat — Buster just followed him home from taking out the trash one day and imprinted on him. Bro just showed up and never left.
+- He has 5+ years of experience cleaning yards across Lubbock and surrounding neighborhoods.
+- He has a lovely fiance named Lauren. They have been together for 5 years. Lauren likes to paint, watch her favorite tv shows. She also likes to travel and one of her favorite activities is looking at the stars. She does a good job at making sure Corbin stays motivated. Corbin and Lauren do not have a kid, but both look forward to having one some day.
+- He likes all kinds of music, his genre is always changing because he likes them all to much 😂.
+- He would choose to own a dog over a cat, but both are great options.
+- He likes to play video games, do random projects with code and hangout with his fiance Lauren. He likes to pet his dog as well, shes always there for him <3  
 
 BUSINESS INFO:
 - Name: PoopDood
@@ -954,13 +965,14 @@ PRICING:
 Every 2 Weeks: 1 dog $40/mo | 2 dogs $50/mo | 3 dogs $55/mo | 4 dogs $60/mo | 5+ dogs $65/mo
 Once a Week: 1 dog $50/mo | 2 dogs $60/mo | 3 dogs $65/mo | 4 dogs $70/mo | 5+ dogs $75/mo
 Twice a Week: 1 dog $90/mo | 2 dogs $95/mo | 3 dogs $100/mo | 4 dogs $105/mo | 5+ dogs $110/mo
-One-time cleanups: available, same price as Once a Week. Covers the month if customer wants.
+One-time cleanups: same price as Once a Week, starting at $50 for 1 dog.
+More than 5 dogs: add $5 per additional dog.
 
-SERVICE AREA: Lubbock, TX and surrounding neighborhoods. For specific ZIP availability, tell them to text.
+SERVICE AREA: Lubbock, TX and surrounding neighborhoods. Text address to confirm ZIP.
+BOOKING: Fill out the form at poopdood.site or text 806-781-5638.
+NO CONTRACTS — skip, pause, or cancel anytime.
 
-BOOKING: Customers can fill out the form on the website or text 806-781-5638 directly.
-
-Keep responses under 3 sentences when possible. Use a friendly, casual tone. End with a helpful nudge to book or text if appropriate.`;
+Keep responses under 3 sentences. Be genuine and a little fun — that's who Corbin is. End with a nudge to book or text if appropriate.`;
 
   const panel    = document.getElementById('chatPanel');
   const toggle   = document.getElementById('chatToggle');
@@ -1000,23 +1012,17 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
   async function send() {
     const text = input.value.trim();
     if (!text || busy) return;
-
     busy = true;
     sendBtn.disabled = true;
     input.value = '';
     input.disabled = true;
-
     addMsg(text, 'user');
     history.push({ role: 'user', content: text });
-
     const typing = addMsg('PoopDood is typing…', 'typing');
-
     try {
       const res = await fetch('https://young-wind-447b.corbinkey007.workers.dev', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: GROQ_MODEL,
           max_tokens: 200,
@@ -1026,18 +1032,15 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
           ]
         })
       });
-
       if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I didn't catch that. Text us at 806-781-5638!";
-
       history.push({ role: 'assistant', content: reply });
       typing.remove();
       addMsg(reply, 'bot');
-
     } catch (err) {
       typing.remove();
-      addMsg("Hmm, something went wrong on my end. Text us at 806-781-5638 and we'll help you out!", 'bot');
+      addMsg("Hmm, something went wrong. Text Corbin directly at 806-781-5638!", 'bot');
       console.error('Groq error:', err);
     } finally {
       busy = false;
