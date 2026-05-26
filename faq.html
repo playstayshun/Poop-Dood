@@ -1104,8 +1104,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 (function () {
-  const GROQ_KEY   = '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';
   const GROQ_MODEL = 'llama-3.3-70b-versatile';
+
   const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to call or text. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs; tell them it is $5 per dog and add the correct amount.
 
 BUSINESS INFO:
@@ -1123,25 +1123,35 @@ Twice a Week: 1 dog $90/mo | 2 dogs $95/mo | 3 dogs $100/mo | 4 dogs $105/mo | 5
 One-time cleanups: available, same price as Once a Week. Covers the month if customer wants.
 
 SERVICE AREA: Lubbock, TX and surrounding neighborhoods. For specific ZIP availability, tell them to text.
+
 BOOKING: Customers can fill out the form on the website or text 806-781-5638 directly.
+
 Keep responses under 3 sentences when possible. Use a friendly, casual tone. End with a helpful nudge to book or text if appropriate.`;
 
-  const panel = document.getElementById('chatPanel');
-  const toggle = document.getElementById('chatToggle');
+  const panel    = document.getElementById('chatPanel');
+  const toggle   = document.getElementById('chatToggle');
   const closeBtn = document.getElementById('chatClose');
   const messages = document.getElementById('chatMessages');
-  const input = document.getElementById('chatInput');
-  const sendBtn = document.getElementById('chatSend');
-  const history = [];
-  let busy = false;
+  const input    = document.getElementById('chatInput');
+  const sendBtn  = document.getElementById('chatSend');
+
+  const history  = [];
+  let   busy     = false;
 
   toggle.addEventListener('click', () => {
     const isOpen = panel.classList.toggle('open');
     toggle.textContent = isOpen ? '✕' : '🐾';
-    if (isOpen) setTimeout(() => input.focus(), 150);
+    if (isOpen) { setTimeout(() => input.focus(), 150); }
   });
-  closeBtn.addEventListener('click', () => { panel.classList.remove('open'); toggle.textContent = '🐾'; });
-  input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+    toggle.textContent = '🐾';
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
   sendBtn.addEventListener('click', send);
 
   function addMsg(text, role) {
@@ -1156,27 +1166,50 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
   async function send() {
     const text = input.value.trim();
     if (!text || busy) return;
-    busy = true; sendBtn.disabled = true; input.value = ''; input.disabled = true;
+
+    busy = true;
+    sendBtn.disabled = true;
+    input.value = '';
+    input.disabled = true;
+
     addMsg(text, 'user');
     history.push({ role: 'user', content: text });
+
     const typing = addMsg('PoopDood is typing…', 'typing');
+
     try {
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const res = await fetch('https://young-wind-447b.corbinkey007.workers.dev', {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${GROQ_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: GROQ_MODEL, max_tokens: 200, messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...history] })
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: GROQ_MODEL,
+          max_tokens: 200,
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...history
+          ]
+        })
       });
+
       if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I didn't catch that. Text us at 806-781-5638!";
+
       history.push({ role: 'assistant', content: reply });
       typing.remove();
       addMsg(reply, 'bot');
+
     } catch (err) {
       typing.remove();
       addMsg("Hmm, something went wrong on my end. Text us at 806-781-5638 and we'll help you out!", 'bot');
+      console.error('Groq error:', err);
     } finally {
-      busy = false; sendBtn.disabled = false; input.disabled = false; input.focus();
+      busy = false;
+      sendBtn.disabled = false;
+      input.disabled = false;
+      input.focus();
     }
   }
 })();
