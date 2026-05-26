@@ -537,6 +537,15 @@ body.dark .ba-label.after { color: #a0e860; }
     line-height: 1.65;
   }
 
+/* ── why-choose-us SECTION ── */
+  #why-choose-us p {
+    max-width: 640px;
+    margin: 0 auto 24px;
+    font-size: 1rem;
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
   /* ── FORM ── */
   form {
     display: flex;
@@ -1049,7 +1058,18 @@ body.dark .price-estimate {
     <div id="formStatus"></div>
   </form>
 </section>
+ 
+ <section id="why-choose-us">
+  <h2>Why choose PoopDood?</h2>
+  <p>
+    PoopDood provides reliable dog poop removal and pet waste cleanup services for busy dog owners in Lubbock and surrounding areas. We make it easy to keep your yard clean, sanitary, and safe for your family and pets without the hassle of scooping yourself.</p>
 
+<p> Whether you need weekly pooper scooper service, a one-time dog waste cleanup, or routine pet waste removal, we’ve got you covered with simple pricing and easy online booking. We show up on time, clean thoroughly, and help keep your outdoor space looking its best year-round. </p>
+
+<p> At PoopDood, our goal is simple: affordable, dependable dog poop cleanup with friendly local service you can trust. Let us handle the dirty work so you can enjoy a cleaner yard and more time with your dogs.</p>
+
+</section>
+ 
 <section id="one-time">
   <h2>Do I do one-time pickups?</h2>
   <p>
@@ -1462,7 +1482,7 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
   const GROQ_MODEL = 'meta-llama/llama-4-scout-17b-16e-instruct';
 
-  const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to check the FAQ page or reachout to PoopDood 806-781-5638. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs; tell them it is $5 per dog and add the correct amount.
+  const SYSTEM_PROMPT = `You are a friendly, helpful assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. Keep answers short, warm, and helpful. Never make up info; if unsure, tell them to call or text. Never tell the wrong price; if unsure, tell them to call or text. If more than 5 dogs; tell them it is $5 per dog and add the correct amount.
 
 BUSINESS INFO:
 - Name: PoopDood
