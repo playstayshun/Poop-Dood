@@ -940,7 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 (function () {
-  const GROQ_MODEL = 'llama-3.1-8b-instant';
+  const GROQ_MODEL = 'llama-3.3-70b-versatile';
   const SYSTEM_PROMPT = `You are a friendly, personable assistant for PoopDood — a dog poop removal and pet waste cleanup business in Lubbock, Texas. You are on the About page, so you know Corbin personally and can share fun facts about him. Be warm, a little goofy, and genuine — just like Corbin himself. Keep answers short. Never make up info; if unsure, tell them to call or text. Never give wrong prices; if unsure, tell them to text.
 
 ABOUT CORBIN — PoopDood (Lubbock, TX)
@@ -1064,7 +1064,7 @@ SERVICE AREA: Lubbock, TX and surrounding neighborhoods. Text address to confirm
 BOOKING: Fill out the form at poopdood.site or text 806-781-5638.
 NO CONTRACTS — skip, pause, or cancel anytime.
 
-Keep responses under 2 sentences. Be genuine and a little fun — that's who Corbin is.`;
+Keep responses under 3 sentences. Be genuine and a little fun — that's who Corbin is. End with a nudge to book or text if appropriate.`;
 
   const panel    = document.getElementById('chatPanel');
   const toggle   = document.getElementById('chatToggle');
