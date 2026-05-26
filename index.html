@@ -267,6 +267,66 @@
     100% { transform: translate(0,0) rotate(0deg); }
   }
 
+/* ── HEADER BACKGROUND SLIDESHOW ── */
+.header-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  overflow: hidden;
+}
+.header-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: headerSlide 18s infinite;
+}
+.header-slide:nth-child(1) { animation-delay: 0s; }
+.header-slide:nth-child(2) { animation-delay: 6s; }
+.header-slide:nth-child(3) { animation-delay: 12s; }
+@keyframes headerSlide {
+  0%        { opacity: 0; }
+  8%        { opacity: 0.18; }
+  33%       { opacity: 0.18; }
+  41%       { opacity: 0; }
+  100%      { opacity: 0; }
+}
+body.dark .header-slide { opacity: 0; }
+body.dark .header-slide { filter: brightness(0.4); }
+
+/* ── BEFORE / AFTER SECTION ── */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+.ba-col { display: flex; flex-direction: column; gap: 12px; }
+.ba-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: block;
+}
+.ba-label.before { color: #c0392b; }
+.ba-label.after  { color: var(--primary-dark); }
+body.dark .ba-label.after { color: #a0e860; }
+.ba-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+@media (hover: hover) { .ba-img:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); } }
+@media (max-width: 520px) { .ba-grid { grid-template-columns: 1fr 1fr; gap: 8px; } }
+
   /* ── HEADER ── */
   header {
     position: relative;
@@ -845,6 +905,13 @@ body.dark .price-estimate {
 <div class="dog" style="top:85%; left:80%; animation-duration:26s;">🐾</div>
 
 <header>
+    <!-- Background slideshow -->
+  <div class="header-slides">
+    <div class="header-slide" style="background-image:url('https://i.ibb.co/S4zYr6jt/Lubbock-Hero-i-Stock-1367955777-scaled-1024x650.webp')"></div>
+    <div class="header-slide" style="background-image:url('https://i.ibb.co/hJpt7zfd/buddyholly.webp')"></div>
+    <div class="header-slide" style="background-image:url('https://i.ibb.co/d02L8PSC/Getty-Images-2247190446.webp')"></div>
+  </div>
+  
   <img
     src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png"
     alt="PoopDood Logo"
@@ -989,6 +1056,25 @@ body.dark .price-estimate {
     Absolutely! Whether it's before a backyard party, an event, or just when life's too busy — PoopDood offers quick, reliable one-time cleanups to make your yard fresh and ready to enjoy.
   </p>
   <a class="btn" href="sms:8067815638?body=Hi!%20I%27m%20wondering%20if%20you%20do%20one-time%20pickups.">💩 Ask About One-Time Pickups</a>
+</section>
+
+<!-- Before / After -->
+<section id="before-after" aria-labelledby="ba-heading">
+  <h2 id="ba-heading">The Difference We Make</h2>
+  <div class="ba-grid">
+    <div class="ba-col">
+      <span class="ba-label before">😬 Before</span>
+      <img class="ba-img" src="https://i.ibb.co/fzJZBWD3/before-1.webp" alt="Yard before cleanup - Lubbock TX" loading="lazy">
+      <img class="ba-img" src="https://i.ibb.co/BKSMV2Gr/before-2.webp" alt="Yard before cleanup" loading="lazy">
+      <img class="ba-img" src="https://i.ibb.co/Kx0rXNn6/before-3.webp" alt="Yard before cleanup" loading="lazy">
+    </div>
+    <div class="ba-col">
+      <span class="ba-label after">✅ After</span>
+      <img class="ba-img" src="https://i.ibb.co/VXz2HR9/after-1.webp" alt="Yard after PoopDood cleanup" loading="lazy">
+      <img class="ba-img" src="https://i.ibb.co/3yP9mhgr/after-2.webp" alt="Yard after PoopDood cleanup" loading="lazy">
+      <img class="ba-img" src="https://i.ibb.co/QvBpRtcP/after-3.webp" alt="Yard after PoopDood cleanup" loading="lazy">
+    </div>
+  </div>
 </section>
 
 <section id="location">
