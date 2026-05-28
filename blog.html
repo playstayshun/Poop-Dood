@@ -48,34 +48,42 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Why You Should Let Your Dog Out Every 4 Hours",
+      "description": "Healthy adult dogs can technically hold it for 8 hours — but that doesn't mean they should. Here's why a 4-hour schedule makes a real difference for your dog's health and behavior.",
+      "url": "https://poopdood.site/let-your-dog-out-every-4-hours.html",
+      "datePublished": "2026-05-28",
+      "author": { "@type": "Person", "name": "Corbin Key" }
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Why Dog Poop Is More Dangerous Than You Think",
       "description": "Dog waste isn't just gross — it's classified as an environmental pollutant. Learn the real health risks lurking in your Lubbock backyard.",
-      "url": "https://poopdood.site/blog.html#post-1",
-      "datePublished": "2026-04-01",
+      "url": "https://poopdood.site/why-dog-poop-dangerous.html",
+      "datePublished": "2026-04-21",
       "author": { "@type": "Person", "name": "Corbin Key" }
     },
     {
       "@type": "BlogPosting",
       "headline": "How Often Should You Clean Up Dog Poop in Your Yard?",
       "description": "Weekly? Daily? The answer might surprise you — especially if you have multiple dogs.",
-      "url": "https://poopdood.site/blog.html#post-2",
-      "datePublished": "2026-04-08",
+      "url": "https://poopdood.site/how-often-clean-dog-poop.html",
+      "datePublished": "2026-05-05",
       "author": { "@type": "Person", "name": "Corbin Key" }
     },
     {
       "@type": "BlogPosting",
       "headline": "5 Signs Your Yard Needs a Professional Pooper Scooper",
       "description": "Brown grass patches, mysterious smells, and sick pets — here's when it's time to call in the pros.",
-      "url": "https://poopdood.site/blog.html#post-3",
-      "datePublished": "2026-04-15",
+      "url": "https://poopdood.site/5-signs-professional-pooper-scooper.html",
+      "datePublished": "2026-05-19",
       "author": { "@type": "Person", "name": "Corbin Key" }
     },
     {
       "@type": "BlogPosting",
       "headline": "The Best Dog Parks in Lubbock, TX (And What to Bring)",
       "description": "A local guide to Lubbock's top dog-friendly spots, including what gear every responsible dog owner should carry.",
-      "url": "https://poopdood.site/blog.html#post-4",
-      "datePublished": "2026-04-22",
+      "url": "https://poopdood.site/best-dog-parks-lubbock.html",
+      "datePublished": "2026-05-26",
       "author": { "@type": "Person", "name": "Corbin Key" }
     }
   ]
@@ -270,8 +278,6 @@
   }
   body.dark header p.tagline { color: rgba(255,255,255,0.65); }
 
-
-
   .breadcrumb {
     display: flex;
     justify-content: center;
@@ -344,12 +350,100 @@
     }
   }
 
+  /* ── FEATURED POST ── */
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 40px auto 0;
+    width: 92%;
+    max-width: 1060px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s, border-color 0.4s;
+    text-decoration: none;
+    color: inherit;
+  }
+  @media (hover: hover) {
+    .featured-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+    }
+    .featured-post:hover .featured-thumb { transform: scale(1.03); }
+    .featured-post:hover .post-read-btn { background: var(--primary); color: #fff; border-color: var(--primary); }
+  }
+  .featured-thumb-wrap {
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .featured-thumb {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .featured-body {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+  .featured-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #3a2a00;
+    border-radius: 99px;
+    padding: 4px 12px;
+    width: fit-content;
+  }
+  .featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .featured-excerpt {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-2);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  @media (max-width: 640px) {
+    .featured-post { grid-template-columns: 1fr; }
+    .featured-thumb { min-height: 200px; }
+    .featured-body { padding: 22px 18px; }
+  }
+
   /* ── BLOG GRID ── */
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-    gap: 28px;
-    margin: 40px auto;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 24px;
+    margin: 24px auto 40px;
     width: 92%;
     max-width: 1060px;
     text-align: left;
@@ -364,12 +458,16 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s, border-color 0.4s;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
   }
   @media (hover: hover) {
     .post-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
+    .post-card:hover .post-thumb { transform: scale(1.03); }
+    .post-card:hover .post-read-btn { background: var(--primary); color: #fff; border-color: var(--primary); }
   }
 
   .post-thumb {
@@ -379,9 +477,6 @@
     display: block;
     transition: transform 0.4s ease;
   }
-  @media (hover: hover) {
-    .post-card:hover .post-thumb { transform: scale(1.03); }
-  }
 
   .post-thumb-wrap {
     overflow: hidden;
@@ -389,7 +484,7 @@
   }
 
   .post-body {
-    padding: 24px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -406,7 +501,7 @@
     border: 1px solid rgba(92,200,42,0.25);
     border-radius: 99px;
     padding: 3px 10px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     width: fit-content;
     transition: background 0.4s, color 0.4s;
   }
@@ -414,19 +509,18 @@
 
   .post-title {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--text);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     line-height: 1.25;
-    transition: color 0.2s;
   }
 
   .post-excerpt {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-2);
     line-height: 1.7;
     flex: 1;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .post-meta {
@@ -436,8 +530,10 @@
     font-size: 0.78rem;
     color: var(--text-2);
     border-top: 1px solid var(--border);
-    padding-top: 14px;
+    padding-top: 12px;
     margin-top: auto;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .post-read-btn {
@@ -452,153 +548,10 @@
     border: 1px solid rgba(92,200,42,0.3);
     border-radius: 8px;
     padding: 6px 12px;
-    transition: background 0.2s, color 0.2s, transform 0.2s;
+    transition: background 0.2s, color 0.2s, transform 0.2s, border-color 0.2s;
+    flex-shrink: 0;
   }
   body.dark .post-read-btn { color: #a0e860; background: rgba(92,200,42,0.1); }
-  @media (hover: hover) {
-    .post-read-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-      transform: translateX(3px);
-    }
-  }
-
-  /* ── FULL POST ARTICLES ── */
-  .post-article {
-    background: var(--surface);
-    margin: 32px auto;
-    padding: 48px 32px;
-    width: 92%;
-    max-width: 740px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    text-align: left;
-    transition: background 0.4s, color 0.4s, border-color 0.4s;
-    scroll-margin-top: 80px;
-  }
-  @media (hover: hover) { .post-article:hover { box-shadow: var(--shadow-lg); } }
-
-  .post-article h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    color: var(--primary-dark);
-    margin-bottom: 6px;
-    line-height: 1.2;
-    animation: sectionGlow 3s ease-in-out infinite alternate;
-  }
-  @keyframes sectionGlow {
-    0%   { text-shadow: 0 0 6px rgba(255,229,92,0.3), 0 0 14px rgba(63,163,27,0.2); }
-    100% { text-shadow: 0 0 12px rgba(255,229,92,0.6), 0 0 28px rgba(63,163,27,0.4); }
-  }
-  body.dark .post-article h2 { color: #a0e860; }
-
-  .post-article .article-meta {
-    font-size: 0.8rem;
-    color: var(--text-2);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .post-article .article-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .post-article .article-hero {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: var(--radius-sm);
-    margin-bottom: 24px;
-    border: 1px solid var(--border);
-  }
-
-  .post-article p {
-    font-size: 0.97rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-
-  .post-article h3 {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    color: var(--primary-dark);
-    margin: 28px 0 10px;
-  }
-  body.dark .post-article h3 { color: #a0e860; }
-
-  .post-article ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 16px;
-  }
-  .post-article ul li {
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.75;
-    padding: 6px 0 6px 24px;
-    position: relative;
-    border-bottom: 1px solid var(--border);
-  }
-  .post-article ul li:last-child { border-bottom: none; }
-  .post-article ul li::before {
-    content: '🐾';
-    position: absolute;
-    left: 0;
-    font-size: 0.8rem;
-    top: 8px;
-  }
-
-  .callout {
-    background: var(--surface-2);
-    border-left: 4px solid var(--primary);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 16px 20px;
-    margin: 24px 0;
-    font-size: 0.93rem;
-    color: var(--text);
-    line-height: 1.7;
-  }
-  body.dark .callout { background: rgba(92,200,42,0.08); border-left-color: #a0e860; }
-
-  .cta-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: var(--radius-sm);
-    padding: 20px 24px;
-    margin: 28px 0 0;
-  }
-  .cta-inline p {
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin: 0;
-  }
-  .cta-inline a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.95);
-    color: var(--primary-dark);
-    font-weight: 700;
-    font-size: 0.88rem;
-    padding: 10px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    white-space: nowrap;
-  }
-  @media (hover: hover) { .cta-inline a:hover { background: var(--accent); transform: translateY(-2px); } }
 
   /* ── SECTION LABEL ── */
   .section-label {
@@ -667,8 +620,8 @@
     .logo { width: 88px; height: 88px; border-radius: 18px; }
     .header-btns { padding: 0 8px; gap: 8px; }
     .btn { padding: 10px 14px; font-size: 0.85rem; border-radius: 10px; }
-    .blog-grid { width: 95%; gap: 16px; margin: 24px auto; }
-    .post-article { width: 95%; padding: 28px 16px; margin: 20px auto; border-radius: 16px; }
+    .blog-grid { width: 95%; gap: 16px; margin: 20px auto 32px; }
+    .featured-post { width: 95%; }
     .section-label { width: 95%; font-size: 1.4rem; }
   }
 </style>
@@ -694,10 +647,10 @@
 
   <img src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png" alt="PoopDood Logo" class="logo"/>
   <nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html">Home</a>
-  <span aria-hidden="true">›</span>
-  <span aria-current="page">Blog</span>
-</nav>
+    <a href="index.html">Home</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">Blog</span>
+  </nav>
   <h1>POOP DOOD©</h1>
   <p class="header-sub">The Blog 🐾</p>
   <p class="tagline">Tips, facts &amp; dog life from Lubbock's favorite pooper scooper</p>
@@ -716,13 +669,34 @@
   </div>
 </header>
 
-<!-- ── CARD GRID PREVIEW ── -->
-<p class="section-label">Latest Articles</p>
+<!-- ── FEATURED POST ── -->
+<p class="section-label">Latest Article</p>
+
+<a class="featured-post" href="let-your-dog-out-every-4-hours.html">
+  <div class="featured-thumb-wrap">
+    <img class="featured-thumb"
+      src="https://i.ibb.co/Kj5z5QTK/whyyoushouldletyourdogout.png"
+      alt="Dog waiting to go outside"
+      loading="eager">
+  </div>
+  <div class="featured-body">
+    <span class="featured-label">⭐ Latest Post · Dog Health</span>
+    <h2 class="featured-title">Why You Should Let Your Dog Out Every 4 Hours</h2>
+    <p class="featured-excerpt">Healthy adult dogs can technically hold it for 8 hours — but that doesn't mean they should. Here's why a 4-hour schedule makes a real difference for your dog's health and behavior.</p>
+    <div class="featured-meta">
+      <span>🗓 May 28, 2026 &nbsp;·&nbsp; 3 min read &nbsp;·&nbsp; ✍️ Corbin Key</span>
+      <span class="post-read-btn">Read Article →</span>
+    </div>
+  </div>
+</a>
+
+<!-- ── BLOG GRID ── -->
+<p class="section-label" style="margin-top: 40px;">More Articles</p>
 
 <div class="blog-grid">
 
   <!-- CARD 1: Why Dog Poop Is Dangerous -->
-  <article class="post-card">
+  <a class="post-card" href="why-dog-poop-dangerous.html">
     <div class="post-thumb-wrap">
       <img class="post-thumb"
         src="https://i.ibb.co/MDW86MfK/dogpicture1.png"
@@ -732,16 +706,16 @@
     <div class="post-body">
       <span class="post-tag">Health &amp; Safety</span>
       <h2 class="post-title">Why Dog Poop Is More Dangerous Than You Think</h2>
-      <p class="post-excerpt">Dog waste isn't just unpleasant — it's classified as an environmental pollutant by the EPA. Learn the real health risks lurking in your Lubbock backyard and why regular cleanup matters more than you'd expect.</p>
+      <p class="post-excerpt">Dog waste isn't just unpleasant — it's classified as an environmental pollutant by the EPA. Learn the real health risks lurking in your Lubbock backyard.</p>
       <div class="post-meta">
-        <span>🗓 April 21, 2026 &nbsp;·&nbsp; 4 min read</span>
-        <a class="post-read-btn" href="#post-1">Read → </a>
+        <span>🗓 Apr 21, 2026 &nbsp;·&nbsp; 4 min</span>
+        <span class="post-read-btn">Read →</span>
       </div>
     </div>
-  </article>
+  </a>
 
   <!-- CARD 2: How Often -->
-  <article class="post-card">
+  <a class="post-card" href="how-often-clean-dog-poop.html">
     <div class="post-thumb-wrap">
       <img class="post-thumb"
         src="https://i.ibb.co/fVLphyqS/how-often.png"
@@ -751,16 +725,16 @@
     <div class="post-body">
       <span class="post-tag">Yard Care</span>
       <h2 class="post-title">How Often Should You Clean Up Dog Poop in Your Yard?</h2>
-      <p class="post-excerpt">Weekly? Daily? Every other day? The answer depends on how many dogs you have, your yard size, and the season. Here's a simple breakdown to help you figure out the right schedule.</p>
+      <p class="post-excerpt">Weekly? Daily? Every other day? The answer depends on how many dogs you have, your yard size, and the season.</p>
       <div class="post-meta">
-        <span>🗓 May 5, 2026 &nbsp;·&nbsp; 3 min read</span>
-        <a class="post-read-btn" href="#post-2">Read → </a>
+        <span>🗓 May 5, 2026 &nbsp;·&nbsp; 3 min</span>
+        <span class="post-read-btn">Read →</span>
       </div>
     </div>
-  </article>
+  </a>
 
   <!-- CARD 3: 5 Signs -->
-  <article class="post-card">
+  <a class="post-card" href="5-signs-professional-pooper-scooper.html">
     <div class="post-thumb-wrap">
       <img class="post-thumb"
         src="https://i.ibb.co/BHc7xzkP/5signs.png"
@@ -770,16 +744,16 @@
     <div class="post-body">
       <span class="post-tag">Pro Tips</span>
       <h2 class="post-title">5 Signs Your Yard Needs a Professional Pooper Scooper</h2>
-      <p class="post-excerpt">Brown grass patches, guests avoiding the backyard, or a smell you can't shake — these are all signs it's time to bring in the pros. Check how many of these your yard has right now.</p>
+      <p class="post-excerpt">Brown grass patches, guests avoiding the backyard, or a smell you can't shake — these are all signs it's time to bring in the pros.</p>
       <div class="post-meta">
-        <span>🗓 May 19, 2026 &nbsp;·&nbsp; 3 min read</span>
-        <a class="post-read-btn" href="#post-3">Read → </a>
+        <span>🗓 May 19, 2026 &nbsp;·&nbsp; 3 min</span>
+        <span class="post-read-btn">Read →</span>
       </div>
     </div>
-  </article>
+  </a>
 
   <!-- CARD 4: Dog Parks -->
-  <article class="post-card">
+  <a class="post-card" href="best-dog-parks-lubbock.html">
     <div class="post-thumb-wrap">
       <img class="post-thumb"
         src="https://i.ibb.co/tMJpJK03/lbkdogparks.jpg"
@@ -789,219 +763,23 @@
     <div class="post-body">
       <span class="post-tag">Lubbock Local</span>
       <h2 class="post-title">The Best Dog Parks in Lubbock, TX (And What to Bring)</h2>
-      <p class="post-excerpt">Lubbock has some great spots to let your dog run free. We rounded up the top dog-friendly parks in town and put together a checklist of what every responsible dog owner should always carry.</p>
+      <p class="post-excerpt">We rounded up the top dog-friendly parks in Lubbock and put together a checklist of what every responsible dog owner should always carry.</p>
       <div class="post-meta">
-        <span>🗓 May 26, 2026 &nbsp;·&nbsp; 5 min read</span>
-        <a class="post-read-btn" href="#post-4">Read → </a>
+        <span>🗓 May 26, 2026 &nbsp;·&nbsp; 5 min</span>
+        <span class="post-read-btn">Read →</span>
       </div>
     </div>
-  </article>
+  </a>
 
 </div>
-
-<!-- ══════════════════════════════════════════
-     FULL POSTS
-══════════════════════════════════════════ -->
-
-<p class="section-label" style="margin-top:60px;">Read the Full Articles</p>
-
-<!-- POST 1 -->
-<article class="post-article" id="post-1">
-  <span class="post-tag">Health &amp; Safety</span>
-  <h2>Why Dog Poop Is More Dangerous Than You Think</h2>
-  <div class="article-meta">
-    <span>🗓 April 21, 2026</span>
-    <span>✍️ Corbin Key, PoopDood</span>
-    <span>⏱ 4 min read</span>
-  </div>
-  <img class="article-hero"
-    src="https://i.ibb.co/rKkpLWZz/whyitsahealthhazard.png"
-    alt="Dog poop in yard - health and safety risks"
-    loading="lazy">
-
-  <p>Most dog owners think of poop cleanup as a chore — something you do so your yard looks nice and smells okay. But here's the thing: <strong>dog waste is actually classified as a non-point source pollutant by the EPA</strong>, putting it in the same category as oil spills and toxic chemicals when it comes to environmental impact. That's not exaggerating. That's the actual regulation.</p>
-
-  <p>A single gram of dog poop contains an estimated 23 million fecal coliform bacteria. That's bacteria like E. coli and salmonella — the kind that can make people seriously sick, especially children who play in the yard or adults with weakened immune systems.</p>
-
-  <h3>What's actually in dog poop?</h3>
-  <ul>
-    <li>E. coli — can cause severe stomach illness in humans</li>
-    <li>Salmonella — spreads to humans through soil and water contact</li>
-    <li>Giardia — a parasite that causes intestinal infections</li>
-    <li>Campylobacter — a leading cause of food poisoning in the US</li>
-    <li>Roundworms and hookworms — can survive in soil for years</li>
-    <li>Parvovirus — deadly to unvaccinated dogs</li>
-  </ul>
-
-  <div class="callout">
-    💡 Roundworm and hookworm eggs can remain alive and infectious in your soil for up to 4 years after the waste is gone. Simply hosing down the yard doesn't eliminate them — physical removal is the only reliable solution.
-  </div>
-
-  <h3>It doesn't just stay in your yard</h3>
-  <p>When it rains, dog waste runoff flows into storm drains and eventually into local waterways. In Lubbock, that means it can end up affecting local playa lakes and drainage systems. This is one of the main reasons cities across the US have leash laws and poop-pickup ordinances — it's a genuine public health issue, not just a neighborhood etiquette thing.</p>
-
-  <h3>What about dog poop as fertilizer?</h3>
-  <p>You might have heard that dog poop is "natural" and can fertilize your lawn like cow manure. This is a common misconception. Cows are herbivores — their waste is lower in nitrogen and pathogens. Dogs are facultative carnivores. Their waste is high in nitrogen (causing those brown burn patches on your grass) and loaded with the pathogens listed above. Leaving it on your lawn actively damages your grass and contaminates the soil.</p>
-
-  <p>The bottom line: regular, consistent dog waste removal is one of the simplest things you can do to protect your family, your pets, your yard, and your neighborhood. That's exactly why PoopDood exists.</p>
-
-  <div class="cta-inline">
-    <p>Ready for a cleaner, safer yard?</p>
-    <a href="index.html#appointment">📅 Book a Cleanup</a>
-    <a href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20book%20a%20cleanup!">💬 Text Us</a>
-  </div>
-</article>
-
-
-<!-- POST 2 -->
-<article class="post-article" id="post-2">
-  <span class="post-tag">Yard Care</span>
-  <h2>How Often Should You Clean Up Dog Poop in Your Yard?</h2>
-  <div class="article-meta">
-    <span>🗓 May 5, 2026</span>
-    <span>✍️ Corbin Key, PoopDood</span>
-    <span>⏱ 3 min read</span>
-  </div>
-  <img class="article-hero"
-    src="https://i.ibb.co/fVLphyqS/how-often.png"
-    alt="Clean yard after professional dog poop removal"
-    loading="lazy">
-
-  <p>One of the most common questions we get at PoopDood is: "How often should I actually be cleaning up after my dog?" The honest answer is — more often than most people do. But the right frequency really does depend on a few factors specific to your situation.</p>
-
-  <h3>The general rule: at least twice a week</h3>
-  <p>For a single dog in an average-sized backyard, cleaning up <strong>at least twice a week</strong> keeps odors manageable, prevents bacteria from building up in the soil, and stops flies from breeding. If you can do it every day, even better — but twice a week is the realistic minimum for most households.</p>
-
-  <h3>Multiple dogs? You need to go more often.</h3>
-  <ul>
-    <li>1 dog — twice a week is fine, weekly works if the yard is large</li>
-    <li>2 dogs — aim for 2–3 times per week</li>
-    <li>3–4 dogs — weekly professional service is strongly recommended</li>
-    <li>5+ dogs — twice-weekly service keeps things under control</li>
-  </ul>
-
-  <h3>Season matters too</h3>
-  <p>In Lubbock summers, heat accelerates bacterial growth and makes odors much worse. Waste that sat fine for a week in February can become a serious problem within a day or two in July. During hot months, we recommend bumping up your cleanup frequency or switching to a more frequent service plan.</p>
-
-  <div class="callout">
-    💡 Here's a simple test: if you can smell your yard from the porch, or if you can spot more than 5–6 piles when scanning your lawn, it's been too long since the last cleanup. Time to call PoopDood.
-  </div>
-
-  <h3>What happens when you let it go too long?</h3>
-  <p>Beyond the obvious smell, infrequent cleanup leads to nitrogen burn (those dead brown patches in your grass), increased fly and pest activity, and a much harder cleanup job when you finally do get to it. Old, dried waste is significantly harder to remove than fresh waste — and parasites like roundworm eggs become more deeply embedded in the soil over time.</p>
-
-  <p>If life gets busy and the yard gets away from you, that's what one-time cleanups are for. We show up, clear everything out, and get you back to a clean slate. Then you decide if you want to keep up with a recurring plan.</p>
-
-  <div class="cta-inline">
-    <p>Not sure what plan is right for you?</p>
-    <a href="sms:8067815638?body=Hi!%20Can%20you%20help%20me%20figure%20out%20which%20service%20plan%20I%20need?">💬 Text Us to Figure It Out</a>
-  </div>
-</article>
-
-
-<!-- POST 3 -->
-<article class="post-article" id="post-3">
-  <span class="post-tag">Pro Tips</span>
-  <h2>5 Signs Your Yard Needs a Professional Pooper Scooper</h2>
-  <div class="article-meta">
-    <span>🗓 May 19, 2026</span>
-    <span>✍️ Corbin Key, PoopDood</span>
-    <span>⏱ 3 min read</span>
-  </div>
-  <img class="article-hero"
-    src="https://i.ibb.co/6R9gZ3XX/5signs3.png"
-    alt="Yard before professional dog waste cleanup"
-    loading="lazy">
-
-  <p>Most people wait too long before calling a professional pooper scooper. It's understandable — it feels like something you should just handle yourself. But there are some clear signs that the situation has gotten past the point of a quick DIY fix, or that your schedule just doesn't allow for it anymore.</p>
-
-  <h3>1. You can smell the yard from inside</h3>
-  <p>If you open a back window or walk out onto your porch and you're hit with a smell, your yard has accumulated enough waste that the ammonia and bacteria are off-gassing in a real way. At this point you're not just dealing with cosmetics — you've got an active odor and hygiene problem.</p>
-
-  <h3>2. Your grass has dead brown patches</h3>
-  <p>Dog waste contains high concentrations of nitrogen. In small amounts, nitrogen is good for grass. In concentrated amounts from repeated waste in the same spots, it chemically burns the lawn. Those dead patches are a classic sign of accumulated waste — and they won't recover until the waste is properly removed and the soil gets time to reset.</p>
-
-  <h3>3. Flies are multiplying in your yard</h3>
-  <p>Dog waste is one of the top breeding grounds for flies. If you've noticed a sudden increase in flies around your patio or back door, there's a good chance poop buildup in the yard is the source. This also creates problems for neighbors nearby.</p>
-
-  <h3>4. You've avoided the yard for more than a week</h3>
-  <p>This one's simple but honest: if you or your family have stopped using the backyard because of the state of it, that's the sign right there. Your yard should be a space you enjoy, not a minefield you avoid.</p>
-
-  <h3>5. Cleanup keeps getting postponed</h3>
-  <p>Life gets busy. Kids, work, weekends that fill up fast — it happens to everyone. If you've told yourself "I'll get to it this weekend" for three weekends in a row, a recurring service plan is the practical solution. It removes the task from your to-do list entirely so you never have to think about it.</p>
-
-  <div class="callout">
-    💡 PoopDood customers often say the biggest surprise is how much they actually use their backyard again after starting a regular service. When the yard is clean, people go outside.
-  </div>
-
-  <div class="cta-inline">
-    <p>Sound familiar? We've got you covered.</p>
-    <a href="index.html#appointment">📅 Book a Cleanup</a>
-    <a href="tel:8067815638">📞 Call 806-781-5638</a>
-  </div>
-</article>
-
-
-<!-- POST 4 -->
-<article class="post-article" id="post-4">
-  <span class="post-tag">Lubbock Local</span>
-  <h2>The Best Dog Parks in Lubbock, TX (And What to Bring)</h2>
-  <div class="article-meta">
-    <span>🗓 May 26, 2026</span>
-    <span>✍️ Corbin Key, PoopDood</span>
-    <span>⏱ 5 min read</span>
-  </div>
-  <img class="article-hero"
-    src="https://i.ibb.co/wZtHcqb3/mcallisterpark.png"
-    alt="McAllister Park - Lubbock Texas dog park"
-    loading="lazy">
-
-  <p>Lubbock is a great city for dog owners. Wide open spaces, mild winters (mostly), and a community that genuinely loves its pets. If you're looking for places to give your dog some off-leash freedom or just a good walk, here's a rundown of the top dog-friendly spots in town — plus what you should always have with you.</p>
-
-  <h3>Top dog-friendly spots in Lubbock</h3>
-
-  <ul>
-    <li><strong>McAlister Dog Park (Pictured)</strong> — One of the most popular spots in town, with 5 acres of space. With plenty of room to roam it tends to be busier on weekends, so arrive early/evening for a calmer experience.</li>
-    <li><strong>Clapp Park</strong> — A solid neighborhood park with good walking paths and a friendly atmosphere. Popular with families and dogs alike.</li>
-    <li><strong>Yellowhouse Canyon Lakes</strong> — A beautiful natural area on the east side. The trails along the canyon are great for longer walks and the scenery is genuinely impressive for West Texas.</li>
-    <li><strong>Lubbock Lake Landmark</strong> — Unique historical site with walking paths. Good for a different kind of outing with your dog.</li>
-    <li><strong>Raintree Park</strong> — Quieter neighborhood park, great for quick evening walks and less crowded than the bigger parks.</li>
-  </ul>
-
-  <div class="callout">
-    💡 Lubbock has leash laws in public parks — dogs must be leashed unless in a designated off-leash area. Always check the park's current signage before letting your dog run free.
-  </div>
-
-  <h3>What to always bring to a Lubbock dog park</h3>
-  <ul>
-    <li>Waste bags (at least 3 — always bring more than you think you'll need)</li>
-    <li>A water bowl and fresh water, especially May through September</li>
-    <li>A leash even if you plan to go off-leash — situations change fast</li>
-    <li>Proof of vaccinations if going to a formal dog park area</li>
-    <li>Flea and tick protection — West Texas has both, especially after rain</li>
-    <li>Your phone with PoopDood's number saved — 806-781-5638 😄</li>
-  </ul>
-
-  <h3>A note on poop bag etiquette</h3>
-  <p>This one's personal for us, obviously. Lubbock parks have waste stations with free bags at most locations, but they run out. Always carry your own. And if you see a bag left on the ground (people sometimes bag it and forget to throw it away), do a neighbor a favor and toss it in the nearest bin. It takes 5 seconds and makes the park better for everyone.</p>
-
-  <p>The best thing about being a responsible dog owner in Lubbock is that the community genuinely notices and appreciates it. Clean parks, clean yards, happy dogs. That's the goal.</p>
-
-  <div class="cta-inline">
-    <p>Keep your yard as clean as your favorite park.</p>
-    <a href="index.html#appointment">📅 Book PoopDood Today</a>
-    <a href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a>
-  </div>
-</article>
-
 
 <footer>
   <img src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png" alt="PoopDood Logo" class="footer-logo"/>
   <p>© 2026 POOPDOOD. Built with 💚 by Jojo &amp; Corbin in Lubbock, TX.</p>
-   <nav class="footer-links" aria-label="Footer Navigation">
+  <nav class="footer-links" aria-label="Footer Navigation">
     <a class="btn" href="index.html">🏠 Home</a>
     <a class="btn" href="about.html">🐾 About</a>
-    <a class="btn" href="blog.html">📖 Blog </a>
+    <a class="btn" href="blog.html">📖 Blog</a>
     <a class="btn" href="faq.html">💩 FAQ</a>
     <a class="btn" href="tel:8067815638">📞 Call</a>
     <a class="btn" href="https://share.google/xysIjRStPDYlG6ytR" target="_blank" rel="noopener">⭐ Reviews</a>
@@ -1144,7 +922,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   <button id="chatToggle" aria-label="Open chat assistant">🐾</button>
 </div>
-
 
 <script>
 (function () {
