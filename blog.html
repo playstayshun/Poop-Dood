@@ -270,6 +270,28 @@
   }
   body.dark header p.tagline { color: rgba(255,255,255,0.65); }
 
+
+
+  .breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .breadcrumb a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .breadcrumb a:hover { opacity: 0.8; text-decoration: underline; }
+  .breadcrumb span { opacity: 0.6; }
+
   nav.main-nav {
     display: flex;
     justify-content: center;
@@ -671,6 +693,11 @@
   </div>
 
   <img src="https://i.ibb.co/dF93pY3/copyright-free-logo-1.png" alt="PoopDood Logo" class="logo"/>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Blog</span>
+</nav>
   <h1>POOP DOOD©</h1>
   <p class="header-sub">The Blog 🐾</p>
   <p class="tagline">Tips, facts &amp; dog life from Lubbock's favorite pooper scooper</p>
