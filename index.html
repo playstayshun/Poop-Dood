@@ -436,100 +436,6 @@ body.dark .ba-label.after { color: #a0e860; }
       color: var(--accent);
     }
   }
-  
-  .blog-promo {
-  margin: 48px auto;
-  width: 92%;
-  max-width: 860px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: background 0.4s, border-color 0.4s;
-}
- 
-.blog-promo-inner {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
- 
-.blog-promo-img {
-  width: 240px;
-  flex-shrink: 0;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  display: block;
-}
- 
-.blog-promo-body {
-  padding: 32px 28px;
-  text-align: left;
-  flex: 1;
-  min-width: 220px;
-}
- 
-.blog-promo-eyebrow {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  background: var(--surface-2);
-  color: var(--primary-dark);
-  border: 1px solid rgba(92,200,42,0.25);
-  border-radius: 99px;
-  padding: 3px 10px;
-  margin-bottom: 10px;
-}
-body.dark .blog-promo-eyebrow { color: #a0e860; background: rgba(92,200,42,0.12); }
- 
-.blog-promo-body h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 4vw, 1.7rem);
-  color: var(--text);
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
- 
-.blog-promo-body p {
-  font-size: 0.92rem;
-  color: var(--text-2);
-  line-height: 1.65;
-  margin-bottom: 20px;
-}
- 
-.blog-promo-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
-  background: var(--primary);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(63,163,27,0.35);
-  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-  white-space: nowrap;
-}
-.blog-promo-btn:hover {
-  transform: translateY(-3px);
-  background: var(--primary-dark);
-  box-shadow: 0 8px 22px rgba(63,163,27,0.45);
-}
-body.dark .blog-promo-btn { background: var(--primary-dark); }
-body.dark .blog-promo-btn:hover { background: #2d8a14; }
- 
-@media (max-width: 600px) {
-  .blog-promo-img { width: 100%; aspect-ratio: 16/7; }
-  .blog-promo-body { padding: 22px 18px; }
-}
-  
 /* ── MAIN NAV ── */
 nav.main-nav {
   display: flex;
@@ -1040,7 +946,6 @@ body.dark .price-estimate {
   <a class="btn active" href="index.html" aria-current="page">🏠 Home</a>
   <a class="btn" href="about.html">🐾 About</a>
   <a class="btn" href="faq.html">💩 FAQ</a>
-  <a class="btn" href="blog.html">📖 Blog</a>
 </nav>
 <div class="header-btns">
     <a class="btn" href="tel:8067815638">📞 Call Us</a>
@@ -1210,25 +1115,6 @@ body.dark .price-estimate {
   </div>
 </section>
 
-<section class="blog-promo" aria-label="Blog Preview">
-  <div class="blog-promo-inner">
-    <img
-      class="blog-promo-img"
-      src=https://i.ibb.co/fGP5nFsG/dogcaretips2.png" 
-      alt="Dog care tips from PoopDood"
-      loading="lazy"
-    >
-    <div class="blog-promo-body">
-      <span class="blog-promo-eyebrow">📝 From the Blog</span>
-      <h2>Dog Care Tips & Yard Health Advice</h2>
-      <p>Did you know dog waste is classified as an EPA pollutant? Learn why regular cleanup matters, how often you really need it, and what Lubbock's best dog parks look like.</p>
-      <a class="blog-promo-btn" href="https://poopdood.site/blog.html">
-        Read the Blog &nbsp;→
-      </a>
-    </div>
-  </div>
-</section>
-
 <section id="location">
   <h2>Our Service Area</h2>
   <div id="map"></div>
@@ -1245,7 +1131,6 @@ body.dark .price-estimate {
     <a class="btn" href="about.html">🐾 About Us</a>
     <a class="btn" href="faq.html">💩 FAQ</a>
   </div>
-  
 </footer>
 
 <script>
