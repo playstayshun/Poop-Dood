@@ -287,6 +287,17 @@ body.dark .dog { opacity: 0.035; }
   100% { transform: translate(0,0) rotate(0deg); }
 }
 
+.header-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  padding: 0 60px;
+}
+
 /* ── HEADER BACKGROUND SLIDESHOW ── */
 .header-slides {
   position: absolute;
@@ -394,6 +405,7 @@ body.dark header p.tagline { color: rgba(255,255,255,0.65); }
 }
 .breadcrumb a:hover { opacity: 0.8; text-decoration: underline; }
 .breadcrumb span { opacity: 0.6; }
+/* ── NAV ── */
 nav.main-nav {
   display: flex;
   justify-content: center;
@@ -402,19 +414,19 @@ nav.main-nav {
   position: relative; z-index: 1;
 }
 nav.main-nav a {
-  color: rgba(255,255,255,0.9);
+  color: var(--primary-dark);
   text-decoration: none;
   font-weight: 700;
   font-size: 0.88rem;
   padding: 8px 16px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.95);
   transition: background 0.2s, color 0.2s;
   backdrop-filter: blur(4px);
 }
-nav.main-nav a:hover { background: rgba(255,255,255,0.28); }
+nav.main-nav a:hover { background: var(--accent); }
 nav.main-nav a.active {
-  background: rgba(255,255,255,0.95);
+  background: var(--accent);
   color: var(--primary-dark);
 }
 main {
@@ -705,12 +717,18 @@ body.dark .footer-links .btn:hover {
   </nav>
   <h1>Got Questions? 💩</h1>
   <p class="tagline">Everything you need to know about PoopDood's dog poop removal service in Lubbock, TX.</p>
-  <nav class="main-nav" aria-label="Main Navigation">
-    <a href="https://poopdood.site/">🏠 Home</a>
-    <a href="https://poopdood.site/about.html">🐾 About</a>
-    <a href="https://poopdood.site/blog.html">📖 Blog</a>
-    <a href="https://poopdood.site/faq.html" class="active" aria-current="page">💩 FAQ</a>
-  </nav>
+    <nav class="main-nav" aria-label="Main Navigation" style="margin-bottom:16px;">
+  <a class="btn" href="index.html" aria-current="page">🏠 Home</a>
+  <a class="btn" href="about.html">🐾 About</a>
+  <a class="btn active" href="faq.html">💩 FAQ</a>
+  <a class="btn" href="blog.html">📖 Blog </a>
+</nav>
+<div class="header-btns">
+    <a class="btn" href="tel:8067815638">📞 Call Us</a>
+    <a class="btn" href="sms:8067815638?body=Hi!%20I%27d%20like%20to%20schedule%20a%20pickup!">💬 Text Us</a>
+    <a class="btn" href="https://www.facebook.com/poopdoodlubbock/" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a class="btn" href="https://www.instagram.com/corbinrkey/" target="_blank" rel="noopener noreferrer">Instagram</a>
+</div>
 </header>
 
 <main id="main-content">
@@ -898,7 +916,7 @@ body.dark .footer-links .btn:hover {
       </button>
       <div class="faq-answer" role="region">
         <div class="faq-answer-inner">
-          We accept <strong>Venmo</strong>, <strong>Cash App</strong>, and <strong>card payments</strong> through secure online invoicing. Easy and convenient — And of course <strong>Cash<strong>.
+          We accept <strong>Venmo</strong>, <strong>Cash App</strong>, and <strong>card payments</strong> through secure online invoicing. Easy and convenient — And of course <strong>Cash</strong>.
         </div>
       </div>
     </div>
