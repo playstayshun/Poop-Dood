@@ -442,9 +442,10 @@ nav.main-nav a {
   background: rgba(255,255,255,0.95);
   transition: background 0.2s, color 0.2s;
   backdrop-filter: blur(4px);
-}nav.main-nav a:hover { background: var(--accent); }
+}
+nav.main-nav a:hover { background: var(--accent); }
 nav.main-nav a.active {
-  background: rgba(255,255,255,0.95);
+  background: var(--accent);
   color: var(--primary-dark);
 }
 
@@ -763,8 +764,8 @@ body.dark .footer-links .btn:hover {
   <p class="tagline">Lubbock's locally owned dog poop removal service — founded by a neighbor, built for dog owners.</p>
 
   <nav class="main-nav" aria-label="Main Navigation" style="margin-bottom:16px;">
-  <a class="btn active" href="index.html" aria-current="page">🏠 Home</a>
-  <a class="btn" href="about.html">🐾 About</a>
+  <a class="btn" href="index.html" aria-current="page">🏠 Home</a>
+  <a class="btn active" href="about.html">🐾 About</a>
   <a class="btn" href="faq.html">💩 FAQ</a>
   <a class="btn" href="blog.html">📖 Blog </a>
 </nav>
