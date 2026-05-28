@@ -489,9 +489,18 @@ body.dark .blog-promo-eyebrow { color: #a0e860; background: rgba(92,200,42,0.12)
 .blog-promo-body h2 {
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 4vw, 1.7rem);
-  color: var(--text);
+  color: var(--primary-dark);
   margin-bottom: 10px;
   line-height: 1.2;
+  animation: sectionGlow 3s ease-in-out infinite alternate;
+}
+.blog-promo-body h2::before {
+  content: "🐾";
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+body.dark .blog-promo-body h2 {
+  color: #a0e860;
 }
  
 .blog-promo-body p {
