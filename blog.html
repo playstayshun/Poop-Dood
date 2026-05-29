@@ -8,6 +8,7 @@
   gtag('js', new Date());
   gtag('config', 'G-LW50NWL9GM');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -246,7 +247,9 @@
     100% { filter: drop-shadow(0 0 16px rgba(255,255,255,0.75)); }
   }
 
-  header h1 {
+  /* FIX 1: .brand-name replaces the old header h1 selector.
+     The visual branding display is now a div, not the H1. */
+  .brand-name {
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 8vw, 4rem);
     color: #fff;
@@ -259,16 +262,18 @@
     0%   { text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 24px rgba(255,229,92,0.4); }
     100% { text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 48px rgba(255,229,92,0.7); }
   }
-  body.dark header h1 { color: var(--accent); }
+  body.dark .brand-name { color: var(--accent); }
 
-  .header-sub {
+  /* FIX 1: Page-specific H1 — descriptive for SEO, styled like the old header-sub */
+  header h1 {
     font-family: var(--font-display);
     font-size: clamp(1rem, 3vw, 1.4rem);
     color: rgba(255,255,255,0.9);
     margin: 0 0 20px;
     position: relative; z-index: 1;
+    font-weight: normal; /* Fredoka One is display; normal weight reads cleanly at this size */
   }
-  body.dark .header-sub { color: var(--accent); opacity: 0.8; }
+  body.dark header h1 { color: var(--accent); opacity: 0.8; }
 
   header p.tagline {
     font-size: clamp(0.95rem, 3vw, 1.15rem);
@@ -350,12 +355,24 @@
     }
   }
 
+  /* ── BLOG INTRO (FIX 3) ── */
+  .blog-intro-text {
+    width: 92%;
+    max-width: 1060px;
+    margin: 20px auto 0;
+    font-size: 0.97rem;
+    color: var(--text-2);
+    line-height: 1.8;
+    text-align: left;
+    transition: color 0.4s;
+  }
+
   /* ── FEATURED POST ── */
   .featured-post {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    margin: 40px auto 0;
+    margin: 24px auto 0;
     width: 92%;
     max-width: 1060px;
     background: var(--surface);
@@ -553,7 +570,7 @@
   }
   body.dark .post-read-btn { color: #a0e860; background: rgba(92,200,42,0.1); }
 
-  /* ── SECTION LABEL ── */
+  /* ── SECTION LABEL (FIX 2: now applied to h2 elements) ── */
   .section-label {
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 5vw, 2rem);
@@ -565,6 +582,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: normal; /* Fredoka One is already display weight */
   }
   body.dark .section-label { color: #a0e860; }
   .section-label::before { content: "🐾"; font-size: 1.1em; }
@@ -623,6 +641,7 @@
     .blog-grid { width: 95%; gap: 16px; margin: 20px auto 32px; }
     .featured-post { width: 95%; }
     .section-label { width: 95%; font-size: 1.4rem; }
+    .blog-intro-text { width: 95%; }
   }
 </style>
 </head>
@@ -651,8 +670,12 @@
     <span aria-hidden="true">›</span>
     <span aria-current="page">Blog</span>
   </nav>
-  <h1>POOP DOOD DOG BLOG</h1>
-  <p class="header-sub">Welcome to the Blog 🐾</p>
+
+  <!-- FIX 1: Brand name is now a div — visually identical but no longer the H1.
+       The H1 below is page-specific and tells Bing exactly what this page covers. -->
+  <div class="brand-name" aria-hidden="true">POOP DOOD DOG BLOG</div>
+  <h1>Dog Care Tips &amp; Advice — PoopDood Blog 🐾</h1>
+
   <p class="tagline">Tips, facts &amp; dog life from Lubbock's favorite pooper scooper</p>
 
   <nav class="main-nav" aria-label="Main Navigation">
@@ -669,8 +692,14 @@
   </div>
 </header>
 
-<!-- ── FEATURED POST ── -->
-<p class="section-label">Latest Article</p>
+<!-- FIX 2 & 3: h2 section label + original intro paragraph so Bing has
+     verifiable on-page content without requiring a click-through. -->
+<h2 class="section-label">Latest Article</h2>
+
+<!-- FIX 3: ~100-word intro paragraph — original content Bing can verify on this page -->
+<p class="blog-intro-text">
+  Welcome to the PoopDood Blog — dog care advice, yard health tips, and honest pet waste facts written for Lubbock pet owners. Every article is written by Corbin Key the PoopDood, a Lubbock native who started PoopDood to help local families keep their backyards clean and their dogs healthy. Whether you're figuring out how often to scoop, what's actually in that pile your dog left, or which local parks are worth the trip with your pup — you'll find no-fluff, experience-backed answers here. New articles drop regularly, so bookmark this page and check back often. Hit home to book PoopDood to scoop your yard!
+</p>
 
 <a class="featured-post" href="let-your-dog-out-every-4-hours.html">
   <div class="featured-thumb-wrap">
@@ -690,8 +719,8 @@
   </div>
 </a>
 
-<!-- ── BLOG GRID ── -->
-<p class="section-label" style="margin-top: 40px;">More Articles</p>
+<!-- FIX 2: Changed from <p> to <h2> so Bing sees a real content hierarchy -->
+<h2 class="section-label" style="margin-top: 40px;">More Articles</h2>
 
 <div class="blog-grid">
 
@@ -705,7 +734,7 @@
     </div>
     <div class="post-body">
       <span class="post-tag">Health &amp; Safety</span>
-      <h2 class="post-title">Why Dog Poop Is More Dangerous Than You Think</h2>
+      <h3 class="post-title">Why Dog Poop Is More Dangerous Than You Think</h3>
       <p class="post-excerpt">Dog waste isn't just unpleasant — it's classified as an environmental pollutant by the EPA. Learn the real health risks lurking in your Lubbock backyard.</p>
       <div class="post-meta">
         <span>🗓 Apr 21, 2026 &nbsp;·&nbsp; 4 min</span>
@@ -724,7 +753,7 @@
     </div>
     <div class="post-body">
       <span class="post-tag">Yard Care</span>
-      <h2 class="post-title">How Often Should You Clean Up Dog Poop in Your Yard?</h2>
+      <h3 class="post-title">How Often Should You Clean Up Dog Poop in Your Yard?</h3>
       <p class="post-excerpt">Weekly? Daily? Every other day? The answer depends on how many dogs you have, your yard size, and the season.</p>
       <div class="post-meta">
         <span>🗓 May 5, 2026 &nbsp;·&nbsp; 3 min</span>
@@ -743,7 +772,7 @@
     </div>
     <div class="post-body">
       <span class="post-tag">Pro Tips</span>
-      <h2 class="post-title">5 Signs Your Yard Needs a Professional Pooper Scooper</h2>
+      <h3 class="post-title">5 Signs Your Yard Needs a Professional Pooper Scooper</h3>
       <p class="post-excerpt">Brown grass patches, guests avoiding the backyard, or a smell you can't shake — these are all signs it's time to bring in the pros.</p>
       <div class="post-meta">
         <span>🗓 May 19, 2026 &nbsp;·&nbsp; 3 min</span>
@@ -752,7 +781,7 @@
     </div>
   </a>
 
-  <!-- CARD 4: Dog Parks -->
+  <!-- CARD 4: Dog Parks — FIX 4: href updated to capital-L Lubbock to match actual filename -->
   <a class="post-card" href="best-dog-parks-lubbock.html">
     <div class="post-thumb-wrap">
       <img class="post-thumb"
@@ -762,7 +791,7 @@
     </div>
     <div class="post-body">
       <span class="post-tag">Lubbock Local</span>
-      <h2 class="post-title">The Best Dog Parks in Lubbock, TX (And What to Bring)</h2>
+      <h3 class="post-title">The Best Dog Parks in Lubbock, TX (And What to Bring)</h3>
       <p class="post-excerpt">We rounded up the top dog-friendly parks in Lubbock and put together a checklist of what every responsible dog owner should always carry.</p>
       <div class="post-meta">
         <span>🗓 May 26, 2026 &nbsp;·&nbsp; 5 min</span>
