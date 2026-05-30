@@ -183,8 +183,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+<!-- Preload the logo — this is your LCP element -->
+<link rel="preload" as="image" href="images/copyright-free-logo-1.png">
+
+<!-- Preconnect to Leaflet CDN so DNS is ready -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<!-- Preconnect to ibb.co for slideshow images -->
+<link rel="preconnect" href="https://i.ibb.co">
 
 <style>
 
@@ -1026,6 +1034,8 @@ body.dark .price-estimate {
 
 </head>
 
+
+
 <body>
 
 <button id="darkToggle" title="Toggle dark mode">🌙</button>
@@ -1050,6 +1060,7 @@ body.dark .price-estimate {
     src="images/copyright-free-logo-1.png"
     alt="PoopDood Logo"
     class="logo"
+    fetchpriority="high"
   />
   <h1>POOP DOOD©</h1>
   <p>Your Dog, Our Mess. — Lubbock's Trusted Pooper Scooper</p>
@@ -1271,7 +1282,8 @@ body.dark .price-estimate {
     We improve our site by using Microsoft Clarity to see how you use our website. By using our site, you agree that we and Microsoft can collect and use this data.
   </p>
 </footer>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -1758,6 +1770,6 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
 </script>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"d8f11f1e8c604c7c8650ef6c7d84bc90","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"d8f11f1e8c604c7c8650ef6c7d84bc90","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
 </body>
 </html>
