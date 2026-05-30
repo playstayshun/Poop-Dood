@@ -1150,20 +1150,20 @@ body.dark .price-estimate {
 <section id="appointment">
   <h2>Book an Appointment</h2>
   <form id="appointmentForm">
-    <input type="text"   id="name"      placeholder="First and Last Name"  required>
-    <input type="text"   id="address"   placeholder="Your Address"         required>
-    <input type="tel"    id="number"    placeholder="Phone Number"         required>
-    <input type="number" id="dogs"      placeholder="Number of Dogs" min="1" required>
-    <input type="text"   id="date"      placeholder="Select a date"
-           onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
-    <select id="frequency" required>
+    <input type="text"   id="name"      placeholder="First and Last Name"  autocomplete="name"           required>
+    <input type="text"   id="address"   placeholder="Your Address"         autocomplete="street-address" required>
+    <input type="tel"    id="number"    placeholder="Phone Number"         autocomplete="tel"            required>
+    <input type="number" id="dogs"      placeholder="Number of Dogs" min="1" autocomplete="off"          required>
+    <input type="text"   id="date"      placeholder="Select a date"        autocomplete="off"
+           onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"                         required>
+    <select id="frequency" autocomplete="off" required>
       <option value="" disabled selected>Select Frequency</option>
       <option value="One Time Pickup">One Time Pickup</option>
       <option value="Weekly">Weekly</option>
       <option value="Bi-Weekly">Bi-Weekly</option>
       <option value="Twice a Week">Twice a Week</option>
     </select>
- 
+
     <!-- Live price estimator — shown when dogs + frequency are filled -->
     <div id="priceEstimate" class="price-estimate" role="status" aria-live="polite">
       <span class="price-estimate-label">Your estimated price</span>
@@ -1174,7 +1174,7 @@ body.dark .price-estimate {
       </div>
       <p class="price-estimate-note" id="priceNote"></p>
     </div>
- 
+
     <button type="submit" class="submit-btn" id="submitBtn">Book My Cleanup 💩</button>
     <p class="form-trust">No contract <span>·</span> Cancel anytime <span>·</span> We'll text you to confirm</p>
     <div id="formStatus"></div>
@@ -1746,5 +1746,6 @@ Keep responses under 3 sentences when possible. Use a friendly, casual tone. End
 })();
 </script>
 
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"d8f11f1e8c604c7c8650ef6c7d84bc90","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
