@@ -28,7 +28,7 @@
 
 <!-- Primary meta & canonical — UNTOUCHED -->
 <link rel="canonical" href="https://poopdood.site/">
-<meta name="description" content="Lubbock's trusted dog poop removal service. Weekly, biweekly & one-time yard cleanups. Locally owned, no contracts. Call 806-781-5638.">
+<meta name="description" content="Lubbock's trusted dog poop removal service, serving all Lubbock zip codes plus Ropesville & Wolfforth, TX. Weekly, biweekly & one-time yard cleanups. Locally owned, no contracts. Call 806-781-5638.">
 <meta name="keywords" content="dog poop removal Lubbock, pooper scooper near me, pet waste cleanup Lubbock TX, yard cleaning dog poop, poop pickup Lubbock">
 
 <!-- Open Graph — FIXED og:url (was pointing to a Facebook photo), FIXED og:image (was expiring CDN URL), ADDED missing width/height/alt -->
@@ -70,15 +70,49 @@
     "addressRegion": "TX",
     "addressCountry": "US"
   },
-  "areaServed": {
-    "@type": "Place",
-    "name": "Lubbock, TX",
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 33.5779,
-      "longitude": -101.8552
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Lubbock, TX",
+      "geo": { "@type": "GeoCoordinates", "latitude": 33.5779, "longitude": -101.8552 }
+    },
+    { "@type": "PostalAddress", "postalCode": "79401" },
+    { "@type": "PostalAddress", "postalCode": "79402" },
+    { "@type": "PostalAddress", "postalCode": "79403" },
+    { "@type": "PostalAddress", "postalCode": "79404" },
+    { "@type": "PostalAddress", "postalCode": "79406" },
+    { "@type": "PostalAddress", "postalCode": "79407" },
+    { "@type": "PostalAddress", "postalCode": "79408" },
+    { "@type": "PostalAddress", "postalCode": "79409" },
+    { "@type": "PostalAddress", "postalCode": "79410" },
+    { "@type": "PostalAddress", "postalCode": "79411" },
+    { "@type": "PostalAddress", "postalCode": "79412" },
+    { "@type": "PostalAddress", "postalCode": "79413" },
+    { "@type": "PostalAddress", "postalCode": "79414" },
+    { "@type": "PostalAddress", "postalCode": "79415" },
+    { "@type": "PostalAddress", "postalCode": "79416" },
+    { "@type": "PostalAddress", "postalCode": "79423" },
+    { "@type": "PostalAddress", "postalCode": "79424" },
+    { "@type": "PostalAddress", "postalCode": "79430" },
+    { "@type": "PostalAddress", "postalCode": "79452" },
+    { "@type": "PostalAddress", "postalCode": "79453" },
+    { "@type": "PostalAddress", "postalCode": "79457" },
+    { "@type": "PostalAddress", "postalCode": "79464" },
+    { "@type": "PostalAddress", "postalCode": "79490" },
+    { "@type": "PostalAddress", "postalCode": "79491" },
+    { "@type": "PostalAddress", "postalCode": "79493" },
+    { "@type": "PostalAddress", "postalCode": "79499" },
+    {
+      "@type": "City",
+      "name": "Ropesville, TX",
+      "containedInPlace": { "@type": "PostalAddress", "postalCode": "79358" }
+    },
+    {
+      "@type": "City",
+      "name": "Wolfforth, TX",
+      "containedInPlace": { "@type": "PostalAddress", "postalCode": "79382" }
     }
-  },
+  ],
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
@@ -89,7 +123,7 @@
     "https://www.facebook.com/poopdoodlubbock/",
     "https://www.instagram.com/corbinrkey/"
   ],
-  "description": "PoopDood provides reliable dog poop removal and pet waste cleanup in Lubbock, TX and surrounding areas. Weekly, biweekly, and one-time services available."
+  "description": "PoopDood provides reliable dog poop removal and pet waste cleanup in Lubbock, TX (zip codes 79401-79499) plus Ropesville (79358) and Wolfforth (79382). Weekly, biweekly, and one-time services available."
 }
 </script>
 
@@ -153,10 +187,10 @@
     },
     {
       "@type": "Question",
-      "name": "What neighborhoods in Lubbock does PoopDood service?",
+      "name": "What neighborhoods and zip codes does PoopDood service?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PoopDood services Lubbock, TX and surrounding neighborhoods. Text 806-781-5638 with your address to confirm availability in your specific area."
+        "text": "PoopDood services all of Lubbock, TX — zip codes 79401, 79402, 79403, 79404, 79406, 79407, 79408, 79409, 79410, 79411, 79412, 79413, 79414, 79415, 79416, 79423, 79424, 79430, 79452, 79453, 79457, 79464, 79490, 79491, 79493, and 79499 — plus Ropesville (79358) and Wolfforth (79382). Text 806-781-5638 with your address to confirm availability in your specific area."
       }
     },
     {
@@ -1029,6 +1063,31 @@ body.dark .price-estimate {
   /* ── PREVENT HORIZONTAL OVERFLOW ON ALL SCREENS ── */
   html, body { max-width: 100vw; overflow-x: hidden; }
   .pricing-list { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+
+  /* ── ZIP CODE LIST ── */
+  .zip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .zip-chip {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 99px;
+  }
+  .zip-towns {
+    max-width: 640px;
+    margin: 0 auto 4px;
+    font-size: 1rem;
+    color: var(--text-2);
+    line-height: 1.65;
+  }
 </style>
 
 </head>
@@ -1254,6 +1313,37 @@ body.dark .price-estimate {
 
 <section id="location">
   <h2>Our Service Area</h2>
+  <p class="zip-towns">We proudly serve all of Lubbock, TX, along with Ropesville and Wolfforth. Not sure if we cover your street? Text 806-781-5638 with your address.</p>
+  <div class="zip-list">
+    <span class="zip-chip">79401</span>
+    <span class="zip-chip">79402</span>
+    <span class="zip-chip">79403</span>
+    <span class="zip-chip">79404</span>
+    <span class="zip-chip">79406</span>
+    <span class="zip-chip">79407</span>
+    <span class="zip-chip">79408</span>
+    <span class="zip-chip">79409</span>
+    <span class="zip-chip">79410</span>
+    <span class="zip-chip">79411</span>
+    <span class="zip-chip">79412</span>
+    <span class="zip-chip">79413</span>
+    <span class="zip-chip">79414</span>
+    <span class="zip-chip">79415</span>
+    <span class="zip-chip">79416</span>
+    <span class="zip-chip">79423</span>
+    <span class="zip-chip">79424</span>
+    <span class="zip-chip">79430</span>
+    <span class="zip-chip">79452</span>
+    <span class="zip-chip">79453</span>
+    <span class="zip-chip">79457</span>
+    <span class="zip-chip">79464</span>
+    <span class="zip-chip">79490</span>
+    <span class="zip-chip">79491</span>
+    <span class="zip-chip">79493</span>
+    <span class="zip-chip">79499</span>
+    <span class="zip-chip">79358 · Ropesville</span>
+    <span class="zip-chip">79382 · Wolfforth</span>
+  </div>
   <div id="map"></div>
 </section>
 
@@ -1434,7 +1524,7 @@ document.addEventListener('DOMContentLoaded', () => {
     boxZoom: false,
     keyboard: false,
     tap: false
-  }).setView([33.5779, -101.8552], 11);
+  }).setView([33.5779, -101.8552], 10);
 
   L.tileLayer(
     body.classList.contains('dark') ? darkTiles : lightTiles,
@@ -1661,7 +1751,7 @@ Once a Week: 1 dog $50/mo | 2 dogs $60/mo | 3 dogs $65/mo | 4 dogs $70/mo | 5+ d
 Twice a Week: 1 dog $90/mo | 2 dogs $95/mo | 3 dogs $100/mo | 4 dogs $105/mo | 5+ dogs $110/mo
 One-time cleanups: available, same price as Once a Week. Covers the month if customer wants.
 
-SERVICE AREA: Lubbock, TX and surrounding neighborhoods. For specific ZIP availability, tell them to text.
+SERVICE AREA: All of Lubbock, TX — zip codes 79401, 79402, 79403, 79404, 79406, 79407, 79408, 79409, 79410, 79411, 79412, 79413, 79414, 79415, 79416, 79423, 79424, 79430, 79452, 79453, 79457, 79464, 79490, 79491, 79493, 79499 — plus Ropesville (79358) and Wolfforth (79382). If someone asks about a zip code not on this list, tell them to text 806-781-5638 to confirm availability.
 
 BOOKING: Customers can fill out the form on the website https://poopdood.site/ or text 806-781-5638 directly.
 
