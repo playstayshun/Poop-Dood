@@ -235,8 +235,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Dog poop removal",
-  "description": "Residential dog poop removal and yard cleaning in Lubbock, Texas, plus Ropesville and Wolfforth.",
+  "@id": "https://poopdood.site/#service",
+  "serviceType": "Dog poop removal",
+  "name": "Dog Poop Removal & Yard Cleanup",
+  "description": "Residential dog poop removal and yard cleaning in Lubbock, Texas, plus Ropesville and Wolfforth. Weekly, biweekly, twice-weekly, and one-time cleanups available with no contracts.",
   "provider": {
     "@id": "https://poopdood.site/#business"
   },
@@ -247,7 +249,57 @@
     "79452", "79453", "79457", "79464", "79490", "79491", "79493", "79499",
     "Ropesville, TX 79358",
     "Wolfforth, TX 79382"
-  ]
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "PoopDood Pricing Plans",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Every 2 Weeks",
+        "itemListElement": [
+          { "@type": "Offer", "name": "1 dog",  "price": "40", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "40", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "2 dogs", "price": "50", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "50", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "3 dogs", "price": "55", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "55", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "4 dogs", "price": "60", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "60", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "5+ dogs", "price": "65", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "65", "priceCurrency": "USD", "billingDuration": "P1M" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Once a Week",
+        "itemListElement": [
+          { "@type": "Offer", "name": "1 dog",  "price": "50", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "50", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "2 dogs", "price": "60", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "60", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "3 dogs", "price": "65", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "65", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "4 dogs", "price": "70", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "70", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "5+ dogs", "price": "75", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "75", "priceCurrency": "USD", "billingDuration": "P1M" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Twice a Week",
+        "itemListElement": [
+          { "@type": "Offer", "name": "1 dog",  "price": "90", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "90", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "2 dogs", "price": "95", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "95", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "3 dogs", "price": "100", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "100", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "4 dogs", "price": "105", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "105", "priceCurrency": "USD", "billingDuration": "P1M" } },
+          { "@type": "Offer", "name": "5+ dogs", "price": "110", "priceCurrency": "USD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "110", "priceCurrency": "USD", "billingDuration": "P1M" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "One-Time Pickup",
+        "itemListElement": [
+          { "@type": "Offer", "name": "1 dog",  "price": "50", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "2 dogs", "price": "60", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "3 dogs", "price": "65", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "4 dogs", "price": "70", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "5+ dogs", "price": "75", "priceCurrency": "USD" }
+        ]
+      }
+    ]
+  }
 }
 </script>
 
