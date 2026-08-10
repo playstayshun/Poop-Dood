@@ -1230,47 +1230,12 @@ body.dark .price-estimate {
     color: #fff;
     box-shadow: 0 3px 10px rgba(63,163,27,0.35);
   }
-  .zip-chip.no-boundary {
-    background: transparent;
-    border-style: dashed;
-    opacity: 0.72;
-  }
-  @media (hover: hover) {
-    .zip-chip.no-boundary:hover {
-      background: var(--surface-2);
-      border-color: var(--text-2);
-      color: var(--text);
-      transform: none;
-    }
-  }
-  .zip-chip.no-boundary.selected {
-    background: var(--surface-2);
-    border-color: var(--text-2);
-    color: var(--text);
-    opacity: 1;
-    box-shadow: none;
-  }
   .zip-towns {
     max-width: 640px;
     margin: 0 auto 4px;
     font-size: 1rem;
     color: var(--text-2);
     line-height: 1.65;
-  }
-  .zip-legend {
-    max-width: 640px;
-    margin: 10px auto 0;
-    font-size: 0.76rem;
-    color: var(--text-2);
-    opacity: 0.8;
-    line-height: 1.5;
-  }
-  .zip-legend .dash-swatch {
-    display: inline-block;
-    width: 18px;
-    border-top: 1.5px dashed var(--text-2);
-    vertical-align: middle;
-    margin: 0 4px -1px 2px;
   }
 
   /* ── MAP CONTROLS ── */
@@ -1551,13 +1516,13 @@ body.dark .price-estimate {
   <p class="zip-towns">We proudly serve all of Lubbock, TX, along with Ropesville and Wolfforth. Click a zip code to see it on the map, or text 806-781-5638 with your address to confirm.</p>
   <div class="zip-list" id="zipList" role="group" aria-label="Service area zip codes — click to view on map">
     <button type="button" class="zip-chip" data-zip="79401">79401</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79402">79402</button>
+    <button type="button" class="zip-chip" data-zip="79402">79402</button>
     <button type="button" class="zip-chip" data-zip="79403">79403</button>
     <button type="button" class="zip-chip" data-zip="79404">79404</button>
     <button type="button" class="zip-chip" data-zip="79406">79406</button>
     <button type="button" class="zip-chip" data-zip="79407">79407</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79408">79408</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79409">79409</button>
+    <button type="button" class="zip-chip" data-zip="79408">79408</button>
+    <button type="button" class="zip-chip" data-zip="79409">79409</button>
     <button type="button" class="zip-chip" data-zip="79410">79410</button>
     <button type="button" class="zip-chip" data-zip="79411">79411</button>
     <button type="button" class="zip-chip" data-zip="79412">79412</button>
@@ -1567,19 +1532,18 @@ body.dark .price-estimate {
     <button type="button" class="zip-chip" data-zip="79416">79416</button>
     <button type="button" class="zip-chip" data-zip="79423">79423</button>
     <button type="button" class="zip-chip" data-zip="79424">79424</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79430">79430</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79452">79452</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79453">79453</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79457">79457</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79464">79464</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79490">79490</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79491">79491</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79493">79493</button>
-    <button type="button" class="zip-chip no-boundary" data-zip="79499">79499</button>
+    <button type="button" class="zip-chip" data-zip="79430">79430</button>
+    <button type="button" class="zip-chip" data-zip="79452">79452</button>
+    <button type="button" class="zip-chip" data-zip="79453">79453</button>
+    <button type="button" class="zip-chip" data-zip="79457">79457</button>
+    <button type="button" class="zip-chip" data-zip="79464">79464</button>
+    <button type="button" class="zip-chip" data-zip="79490">79490</button>
+    <button type="button" class="zip-chip" data-zip="79491">79491</button>
+    <button type="button" class="zip-chip" data-zip="79493">79493</button>
+    <button type="button" class="zip-chip" data-zip="79499">79499</button>
     <button type="button" class="zip-chip" data-zip="79358">79358 · Ropesville</button>
     <button type="button" class="zip-chip" data-zip="79382">79382 · Wolfforth</button>
   </div>
-  <p class="zip-legend"><span class="dash-swatch"></span>dashed = PO Box / business-only zip code (no mapped boundary, but we still service it — just text to confirm)</p>
 
   <div class="map-wrap">
     <button type="button" id="mapResetBtn">↺ View Full Area</button>
@@ -1800,7 +1764,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function popupHtml(zip) {
     const label = ZIP_LABELS[zip] ? `${ZIP_LABELS[zip]} · ${zip}` : `Lubbock, TX ${zip}`;
     const smsBody = encodeURIComponent(`Hi! I'm in zip ${zip} and I'd like to schedule a pickup!`);
-    return `<div class="zip-popup"><b>${label}</b>We service this area! <a href="sms:8067815638?body=${smsBody}">Text to book →</a></div>`;
+    return `<div class="zip-popup"><b>${label}</b>✅ Yes, we come here! <a href="sms:8067815638?body=${smsBody}">Text to book →</a></div>`;
   }
 
   function setChipSelected(zip) {
@@ -1825,11 +1789,11 @@ document.addEventListener('DOMContentLoaded', () => {
       map.fitBounds(layer.getBounds(), { padding: [24, 24], maxZoom: 13 });
       layer.bindPopup(popupHtml(zip)).openPopup(layer.getBounds().getCenter());
     } else {
-      // PO Box / business-only zip — no drawable boundary, but we still service it
+      // No drawn shape for this zip — just zoom in near Lubbock and give the same friendly yes
       map.setView(DEFAULT_CENTER, 12);
       L.popup()
         .setLatLng(DEFAULT_CENTER)
-        .setContent(`<div class="zip-popup"><b>Lubbock, TX ${zip}</b>PO Box / business-only zip code — no mapped boundary, but we cover it! <a href="sms:8067815638?body=${encodeURIComponent(`Hi! I'm in zip ${zip} and I'd like to schedule a pickup!`)}">Text to book →</a></div>`)
+        .setContent(popupHtml(zip))
         .openOn(map);
     }
   }
