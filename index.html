@@ -28,7 +28,7 @@
 
 <!-- Primary meta & canonical — UNTOUCHED -->
 <link rel="canonical" href="https://poopdood.site/">
-<meta name="description" content="Lubbock's trusted dog poop removal service, serving all Lubbock zip codes plus Ropesville & Wolfforth, TX. Weekly, biweekly & one-time yard cleanups. Locally owned, no contracts. Call 806-781-5638.">
+<meta name="description" content="Lubbock's trusted dog poop removal service, now covering Wolfforth & Ropesville too. Weekly, biweekly & one-time yard cleanups. No contracts. Call 806-781-5638.">
 <meta name="keywords" content="dog poop removal Lubbock, pooper scooper near me, pet waste cleanup Lubbock TX, yard cleaning dog poop, poop pickup Lubbock, dog poop removal Wolfforth TX, dog poop removal Ropesville TX">
 
 <!-- Open Graph — FIXED og:url (was pointing to a Facebook photo), FIXED og:image (was expiring CDN URL), ADDED missing width/height/alt -->
@@ -618,13 +618,15 @@ body.dark .ba-label.after { color: #a0e860; }
   }
   body.dark header h1 { color: var(--accent); }
 
-  header p {
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-weight: 600;
     font-size: clamp(0.95rem, 3vw, 1.15rem);
     color: rgba(255,255,255,0.9);
     margin: 0 0 28px;
     position: relative; z-index: 1;
   }
-  body.dark header p { color: rgba(255,255,255,0.7); }
+  body.dark .hero-subtitle { color: rgba(255,255,255,0.7); }
 
   .header-btns {
     display: flex;
@@ -1367,8 +1369,8 @@ body.dark .price-estimate {
     class="logo"
     fetchpriority="high"
   />
-  <h1>POOP DOOD©</h1>
-  <p>Your Dog, Our Mess. — Lubbock's Trusted Pooper Scooper</p>
+  <h1>Poop Dood</h1>
+  <h2 class="hero-subtitle">Dog Poop Removal in Lubbock, TX — Your Dog, Our Mess</h2>
   <nav class="main-nav" aria-label="Main Navigation" style="margin-bottom:16px;">
   <a class="btn active" href="index.html" aria-current="page">🏠 Home</a>
   <a class="btn" href="about.html">🐾 About</a>
@@ -1513,6 +1515,8 @@ body.dark .price-estimate {
 <p> Whether you need weekly pooper scooper service, a one-time dog waste cleanup, or routine pet waste removal, we’ve got you covered with simple pricing and easy online booking. We show up on time, clean thoroughly, and help keep your outdoor space looking its best year-round. </p>
 
 <p> At PoopDood, our goal is simple: affordable, dependable dog poop cleanup with friendly local service you can trust. Let us handle the dirty work so you can enjoy a cleaner yard and more time with your dogs.</p>
+
+<p style="font-size:0.85rem; opacity:0.75; margin-top:16px;"> (Also searching for "Poop Dude"? Close enough — you found us! We're Poop Dood, Lubbock's dog poop removal crew. 🐾)</p>
 
 </section>
  
@@ -1773,6 +1777,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ── LEAFLET MAP (interactive zip-code boundaries) ──
+  // Deferred until the Service Area section scrolls near the viewport,
+  // so the ~190KB of zip boundary data and Leaflet's tile requests don't
+  // load for visitors who never scroll this far down.
+  let mapInitialized = false;
+  function initMap() {
+    if (mapInitialized) return;
+    mapInitialized = true;
+
   const lightTiles    = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   const darkTiles     = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
   const DEFAULT_CENTER = [33.5779, -101.8552];
@@ -1918,6 +1930,23 @@ document.addEventListener('DOMContentLoaded', () => {
       layer.setStyle(z === selectedZip ? zipSelectedStyle() : zipStyle());
     });
   });
+
+  } // end initMap
+
+  const locationSection = document.getElementById('location');
+  if ('IntersectionObserver' in window && locationSection) {
+    const mapObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          initMap();
+          mapObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '400px' }); // start loading a bit before it's on-screen
+    mapObserver.observe(locationSection);
+  } else {
+    initMap(); // fallback for older browsers
+  }
 
 });
 </script>
